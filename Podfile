@@ -7,6 +7,8 @@ target 'Cinema' do
 
   # Networking
     pod 'Alamofire', '~> 5.0.0-beta.3'
+    pod 'FSPagerView'
+    pod 'SDWebImage', :modular_headers => true
 
   # Pods for Cinema
 

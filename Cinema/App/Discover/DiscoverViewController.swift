@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+public final class DiscoverViewController: UIViewController {
+    var output: DiscoverViewOutput?
+}
+
+// MARK: - DiscoverViewInput
+extension DiscoverViewController: DiscoverViewInput {
+    
+}

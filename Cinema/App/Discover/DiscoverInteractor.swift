@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+final class DiscoverInteractor {
+    weak var output: DiscoverInteractorOutput?
+    
+}
+
+// MARK: - DiscoverInteractorInput
+extension DiscoverInteractor: DiscoverInteractorInput {
+    
+}

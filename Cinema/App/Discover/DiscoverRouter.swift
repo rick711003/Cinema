@@ -6,4 +6,14 @@
 //  Copyright © 2562 Chen, Rick (Agoda). All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class DiscoverRouter {
+    
+    weak var viewController: UIViewController?
+}
+
+// MARK: - DiscoverRouterInput
+extension DiscoverRouter: DiscoverRouterInput {
+    
+}

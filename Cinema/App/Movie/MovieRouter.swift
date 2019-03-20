@@ -6,4 +6,14 @@
 //  Copyright © 2562 Chen, Rick (Agoda). All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class MovieRouter {
+    
+    weak var viewController: UIViewController?
+}
+
+// MARK: - MovieRouterInput
+extension MovieRouter: MovieRouterInput {
+    
+}

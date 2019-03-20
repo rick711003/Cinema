@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+final class DiscoverPresenter {
+    weak var view: DiscoverViewInput?
+    var interactor: DiscoverInteractorInput?
+    var router: DiscoverRouterInput?
+}
+
+// MARK: - DiscoverPresenterInput
+extension DiscoverPresenter: DiscoverPresenterInput {
+    
+}
+
+// MARK: - DiscoverInteractorOutput
+extension DiscoverPresenter: DiscoverInteractorOutput {
+    
+}
+
+// MARK: - DiscoverViewOutput
+extension DiscoverPresenter: DiscoverViewOutput {
+    func viewIsReady() {}
+    func viewWillAppear() {}
+    func viewDidAppear() {}
+    func viewWillDisappear() {}
+    func viewDidDisappear() {}
+}

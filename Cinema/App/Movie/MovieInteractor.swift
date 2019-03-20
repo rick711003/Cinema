@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+final class MovieInteractor {
+    weak var output: MovieInteractorOutput?
+    
+}
+
+// MARK: - MovieInteractorInput
+extension MovieInteractor: MovieInteractorInput {
+    
+}

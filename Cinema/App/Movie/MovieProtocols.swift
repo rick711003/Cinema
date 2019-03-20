@@ -7,3 +7,31 @@
 //
 
 import Foundation
+
+// MARK: - Presenter Input & Output
+
+public protocol MoviePresenterInput: class {}
+
+public protocol MoviePresenterOutput: class {}
+
+// MARK: - View Input & Output
+
+protocol MovieViewInput: class {}
+
+protocol MovieViewOutput {
+    func viewIsReady()
+    func viewWillAppear()
+    func viewDidAppear()
+    func viewWillDisappear()
+    func viewDidDisappear()
+}
+
+// MARK: - Interactor Input & Output
+
+protocol MovieInteractorInput {}
+
+protocol MovieInteractorOutput: class {}
+
+// MARK: - Router Input
+
+protocol MovieRouterInput {}

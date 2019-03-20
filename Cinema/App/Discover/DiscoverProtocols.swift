@@ -7,3 +7,31 @@
 //
 
 import Foundation
+
+// MARK: - Presenter Input & Output
+
+public protocol DiscoverPresenterInput: class {}
+
+public protocol DiscoverPresenterOutput: class {}
+
+// MARK: - View Input & Output
+
+protocol DiscoverViewInput: class {}
+
+protocol DiscoverViewOutput {
+    func viewIsReady()
+    func viewWillAppear()
+    func viewDidAppear()
+    func viewWillDisappear()
+    func viewDidDisappear()
+}
+
+// MARK: - Interactor Input & Output
+
+protocol DiscoverInteractorInput {}
+
+protocol DiscoverInteractorOutput: class {}
+
+// MARK: - Router Input
+
+protocol DiscoverRouterInput {}

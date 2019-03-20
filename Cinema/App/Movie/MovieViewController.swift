@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+public final class MovieViewController: UIViewController {
+    var output: MovieViewOutput?
+}
+
+// MARK: - MovieViewInput
+extension MovieViewController: MovieViewInput {
+    
+}

@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+final class MoviePresenter {
+    weak var view: MovieViewInput?
+    var interactor: MovieInteractorInput?
+    var router: MovieRouterInput?
+}
+
+// MARK: - MoviePresenterInput
+extension MoviePresenter: MoviePresenterInput {
+    
+}
+
+// MARK: - MovieInteractorOutput
+extension MoviePresenter: MovieInteractorOutput {
+    
+}
+
+// MARK: - MovieViewOutput
+extension MoviePresenter: MovieViewOutput {
+    func viewIsReady() {}
+    func viewWillAppear() {}
+    func viewDidAppear() {}
+    func viewWillDisappear() {}
+    func viewDidDisappear() {}
+}

@@ -19,6 +19,20 @@
 		9FBD332C2241792600DEBC0C /* ProductionCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD332B2241792600DEBC0C /* ProductionCountries.swift */; };
 		9FBD332E2241793600DEBC0C /* SpokenLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD332D2241793600DEBC0C /* SpokenLanguages.swift */; };
 		9FBD333022417A9200DEBC0C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD332F22417A9200DEBC0C /* Genre.swift */; };
+		9FBD333A22427DAA00DEBC0C /* DiscoverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD333922427DAA00DEBC0C /* DiscoverBuilder.swift */; };
+		9FBD333C22427E6E00DEBC0C /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD333B22427E6E00DEBC0C /* DiscoverPresenter.swift */; };
+		9FBD333E22427E8300DEBC0C /* DiscoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD333D22427E8300DEBC0C /* DiscoverRouter.swift */; };
+		9FBD334022427E9800DEBC0C /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD333F22427E9800DEBC0C /* DiscoverInteractor.swift */; };
+		9FBD334222427EA900DEBC0C /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334122427EA900DEBC0C /* DiscoverViewController.swift */; };
+		9FBD334422427EC000DEBC0C /* DiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD334322427EC000DEBC0C /* DiscoverViewController.xib */; };
+		9FBD334622427ED500DEBC0C /* MovieBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334522427ED500DEBC0C /* MovieBuilder.swift */; };
+		9FBD334822427EF300DEBC0C /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334722427EF300DEBC0C /* MoviePresenter.swift */; };
+		9FBD334A22427F0600DEBC0C /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334922427F0600DEBC0C /* MovieInteractor.swift */; };
+		9FBD334C22427F1A00DEBC0C /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334B22427F1A00DEBC0C /* MovieRouter.swift */; };
+		9FBD334E22427F2E00DEBC0C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD334D22427F2E00DEBC0C /* MovieViewController.swift */; };
+		9FBD335022427F4100DEBC0C /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD334F22427F4100DEBC0C /* MovieViewController.xib */; };
+		9FBD335222427F9100DEBC0C /* DiscoverProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD335122427F9100DEBC0C /* DiscoverProtocols.swift */; };
+		9FBD335422427F9F00DEBC0C /* MovieProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */; };
 		9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF68224146CC004DE327 /* AppDelegate.swift */; };
 		9FD3DF6B224146CC004DE327 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF6A224146CC004DE327 /* ViewController.swift */; };
 		9FD3DF6E224146CC004DE327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3DF6C224146CC004DE327 /* Main.storyboard */; };
@@ -60,6 +74,20 @@
 		9FBD332B2241792600DEBC0C /* ProductionCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCountries.swift; sourceTree = "<group>"; };
 		9FBD332D2241793600DEBC0C /* SpokenLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpokenLanguages.swift; sourceTree = "<group>"; };
 		9FBD332F22417A9200DEBC0C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		9FBD333922427DAA00DEBC0C /* DiscoverBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBuilder.swift; sourceTree = "<group>"; };
+		9FBD333B22427E6E00DEBC0C /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
+		9FBD333D22427E8300DEBC0C /* DiscoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRouter.swift; sourceTree = "<group>"; };
+		9FBD333F22427E9800DEBC0C /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
+		9FBD334122427EA900DEBC0C /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		9FBD334322427EC000DEBC0C /* DiscoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverViewController.xib; sourceTree = "<group>"; };
+		9FBD334522427ED500DEBC0C /* MovieBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBuilder.swift; sourceTree = "<group>"; };
+		9FBD334722427EF300DEBC0C /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
+		9FBD334922427F0600DEBC0C /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
+		9FBD334B22427F1A00DEBC0C /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
+		9FBD334D22427F2E00DEBC0C /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		9FBD334F22427F4100DEBC0C /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
+		9FBD335122427F9100DEBC0C /* DiscoverProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProtocols.swift; sourceTree = "<group>"; };
+		9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocols.swift; sourceTree = "<group>"; };
 		9FD3DF65224146CC004DE327 /* Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD3DF68224146CC004DE327 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FD3DF6A224146CC004DE327 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +168,51 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		9FBD333122427C2F00DEBC0C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9FBD333822427CCD00DEBC0C /* UIComponent */,
+				9FBD333722427CBE00DEBC0C /* Movie */,
+				9FBD333622427CB200DEBC0C /* Discover */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9FBD333622427CB200DEBC0C /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				9FBD333922427DAA00DEBC0C /* DiscoverBuilder.swift */,
+				9FBD333B22427E6E00DEBC0C /* DiscoverPresenter.swift */,
+				9FBD333D22427E8300DEBC0C /* DiscoverRouter.swift */,
+				9FBD333F22427E9800DEBC0C /* DiscoverInteractor.swift */,
+				9FBD334122427EA900DEBC0C /* DiscoverViewController.swift */,
+				9FBD334322427EC000DEBC0C /* DiscoverViewController.xib */,
+				9FBD335122427F9100DEBC0C /* DiscoverProtocols.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		9FBD333722427CBE00DEBC0C /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				9FBD334522427ED500DEBC0C /* MovieBuilder.swift */,
+				9FBD334722427EF300DEBC0C /* MoviePresenter.swift */,
+				9FBD334922427F0600DEBC0C /* MovieInteractor.swift */,
+				9FBD334B22427F1A00DEBC0C /* MovieRouter.swift */,
+				9FBD334D22427F2E00DEBC0C /* MovieViewController.swift */,
+				9FBD334F22427F4100DEBC0C /* MovieViewController.xib */,
+				9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		9FBD333822427CCD00DEBC0C /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
 		9FD3DF5C224146CC004DE327 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +238,7 @@
 		9FD3DF67224146CC004DE327 /* Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				9FBD333122427C2F00DEBC0C /* App */,
 				9FD3DF9622414A93004DE327 /* Core */,
 				9FD3DF68224146CC004DE327 /* AppDelegate.swift */,
 				9FD3DF6A224146CC004DE327 /* ViewController.swift */,
@@ -325,7 +399,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD3DF73224146CF004DE327 /* LaunchScreen.storyboard in Resources */,
+				9FBD334422427EC000DEBC0C /* DiscoverViewController.xib in Resources */,
 				9FD3DF70224146CF004DE327 /* Assets.xcassets in Resources */,
+				9FBD335022427F4100DEBC0C /* MovieViewController.xib in Resources */,
 				9FD3DF6E224146CC004DE327 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,11 +522,23 @@
 				9F17F5FF22414C7900F418D1 /* TMDBService.swift in Sources */,
 				9FBD332A2241791300DEBC0C /* ProductionCompanies.swift in Sources */,
 				9FBD333022417A9200DEBC0C /* Genre.swift in Sources */,
+				9FBD334A22427F0600DEBC0C /* MovieInteractor.swift in Sources */,
 				9FBD3328224178FE00DEBC0C /* BelongsToCollection.swift in Sources */,
+				9FBD335422427F9F00DEBC0C /* MovieProtocols.swift in Sources */,
+				9FBD335222427F9100DEBC0C /* DiscoverProtocols.swift in Sources */,
+				9FBD334222427EA900DEBC0C /* DiscoverViewController.swift in Sources */,
 				9FBD3326224173A500DEBC0C /* Movie.swift in Sources */,
+				9FBD334E22427F2E00DEBC0C /* MovieViewController.swift in Sources */,
+				9FBD334822427EF300DEBC0C /* MoviePresenter.swift in Sources */,
+				9FBD334022427E9800DEBC0C /* DiscoverInteractor.swift in Sources */,
 				9FBD33222241536700DEBC0C /* DiscoverDetail.swift in Sources */,
 				9FBD332C2241792600DEBC0C /* ProductionCountries.swift in Sources */,
+				9FBD333C22427E6E00DEBC0C /* DiscoverPresenter.swift in Sources */,
+				9FBD334C22427F1A00DEBC0C /* MovieRouter.swift in Sources */,
+				9FBD334622427ED500DEBC0C /* MovieBuilder.swift in Sources */,
+				9FBD333A22427DAA00DEBC0C /* DiscoverBuilder.swift in Sources */,
 				9FD3DF6B224146CC004DE327 /* ViewController.swift in Sources */,
+				9FBD333E22427E8300DEBC0C /* DiscoverRouter.swift in Sources */,
 				9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */,
 				9FBD332E2241793600DEBC0C /* SpokenLanguages.swift in Sources */,
 			);

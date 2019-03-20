@@ -11,6 +11,7 @@
 		47D42A4F505FDBE0520FEDFC /* Pods_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B39E525155A060BFFB8B5B1 /* Pods_Cinema.framework */; };
 		6C08774D122BBC3FE18DAEE3 /* Pods_CinemaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825234A8DB0BBAD1B5DE87FB /* Pods_CinemaTests.framework */; };
 		9F17F5FF22414C7900F418D1 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17F5FE22414C7900F418D1 /* TMDBService.swift */; };
+		9FA1D90B2242B569006381C6 /* DiscoverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1D90A2242B569006381C6 /* DiscoverCellViewModel.swift */; };
 		9FBD33202241533300DEBC0C /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD331F2241533300DEBC0C /* Discover.swift */; };
 		9FBD33222241536700DEBC0C /* DiscoverDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD33212241536700DEBC0C /* DiscoverDetail.swift */; };
 		9FBD3326224173A500DEBC0C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD3325224173A500DEBC0C /* Movie.swift */; };
@@ -35,6 +36,7 @@
 		9FBD335422427F9F00DEBC0C /* MovieProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */; };
 		9FBD33562242914A00DEBC0C /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD33552242914A00DEBC0C /* DiscoverCell.swift */; };
 		9FBD33582242915C00DEBC0C /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD33572242915C00DEBC0C /* DiscoverCell.xib */; };
+		9FBD335C2242AF1F00DEBC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD335B2242AF1F00DEBC0C /* Assets.xcassets */; };
 		9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF68224146CC004DE327 /* AppDelegate.swift */; };
 		9FD3DF6B224146CC004DE327 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF6A224146CC004DE327 /* ViewController.swift */; };
 		9FD3DF6E224146CC004DE327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3DF6C224146CC004DE327 /* Main.storyboard */; };
@@ -67,6 +69,7 @@
 		6B39E525155A060BFFB8B5B1 /* Pods_Cinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		825234A8DB0BBAD1B5DE87FB /* Pods_CinemaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F17F5FE22414C7900F418D1 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		9FA1D90A2242B569006381C6 /* DiscoverCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCellViewModel.swift; sourceTree = "<group>"; };
 		9FBD331F2241533300DEBC0C /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		9FBD33212241536700DEBC0C /* DiscoverDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetail.swift; sourceTree = "<group>"; };
 		9FBD3325224173A500DEBC0C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocols.swift; sourceTree = "<group>"; };
 		9FBD33552242914A00DEBC0C /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
 		9FBD33572242915C00DEBC0C /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
+		9FBD335B2242AF1F00DEBC0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FD3DF65224146CC004DE327 /* Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD3DF68224146CC004DE327 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FD3DF6A224146CC004DE327 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			children = (
 				9FBD33552242914A00DEBC0C /* DiscoverCell.swift */,
 				9FBD33572242915C00DEBC0C /* DiscoverCell.xib */,
+				9FA1D90A2242B569006381C6 /* DiscoverCellViewModel.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 		9FD3DF67224146CC004DE327 /* Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				9FBD335B2242AF1F00DEBC0C /* Assets.xcassets */,
 				9FBD333122427C2F00DEBC0C /* App */,
 				9FD3DF9622414A93004DE327 /* Core */,
 				9FD3DF68224146CC004DE327 /* AppDelegate.swift */,
@@ -405,6 +411,7 @@
 				9FD3DF73224146CF004DE327 /* LaunchScreen.storyboard in Resources */,
 				9FBD334422427EC000DEBC0C /* DiscoverViewController.xib in Resources */,
 				9FBD335022427F4100DEBC0C /* MovieViewController.xib in Resources */,
+				9FBD335C2242AF1F00DEBC0C /* Assets.xcassets in Resources */,
 				9FD3DF6E224146CC004DE327 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,12 +487,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cinema/Pods-Cinema-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,6 +537,7 @@
 				9FBD332A2241791300DEBC0C /* ProductionCompanies.swift in Sources */,
 				9FBD333022417A9200DEBC0C /* Genre.swift in Sources */,
 				9FBD334A22427F0600DEBC0C /* MovieInteractor.swift in Sources */,
+				9FA1D90B2242B569006381C6 /* DiscoverCellViewModel.swift in Sources */,
 				9FBD3328224178FE00DEBC0C /* BelongsToCollection.swift in Sources */,
 				9FBD335422427F9F00DEBC0C /* MovieProtocols.swift in Sources */,
 				9FBD335222427F9100DEBC0C /* DiscoverProtocols.swift in Sources */,

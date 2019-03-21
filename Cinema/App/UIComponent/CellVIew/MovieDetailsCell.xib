@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OYz-Lv-hkg" customClass="MovieDetailsCell" customModule="Cinema" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYz-Lv-hkg" id="ZH5-RK-MYv">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPP-5R-lhZ">
+                        <rect key="frame" x="8" y="8" width="361" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="4od-3I-QaY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-rO-T4J">
+                        <rect key="frame" x="44" y="30" width="327" height="67.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IQy-rO-T4J" secondAttribute="bottom" constant="2" id="0ka-yd-C2r"/>
+                    <constraint firstItem="IQy-rO-T4J" firstAttribute="top" secondItem="zPP-5R-lhZ" secondAttribute="bottom" constant="2" id="5Ei-4v-Fn9"/>
+                    <constraint firstItem="IQy-rO-T4J" firstAttribute="leading" secondItem="ZH5-RK-MYv" secondAttribute="leading" constant="44" id="B2R-EO-7kq"/>
+                    <constraint firstItem="zPP-5R-lhZ" firstAttribute="top" secondItem="ZH5-RK-MYv" secondAttribute="top" constant="8" id="Kse-sP-Ahf"/>
+                    <constraint firstAttribute="trailing" secondItem="zPP-5R-lhZ" secondAttribute="trailing" constant="6" id="Rm6-87-RKk"/>
+                    <constraint firstAttribute="trailing" secondItem="IQy-rO-T4J" secondAttribute="trailing" constant="4" id="Ywy-gA-Vac"/>
+                    <constraint firstItem="zPP-5R-lhZ" firstAttribute="leading" secondItem="ZH5-RK-MYv" secondAttribute="leading" constant="8" id="ZsE-3x-tBM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="IQy-rO-T4J" id="oGj-0b-aXb"/>
+                <outlet property="titleLabel" destination="zPP-5R-lhZ" id="GU7-vl-Py3"/>
+            </connections>
+            <point key="canvasLocation" x="-12" y="-26.986506746626688"/>
+        </tableViewCell>
+    </objects>
+</document>

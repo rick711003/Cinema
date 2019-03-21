@@ -27,7 +27,7 @@ private struct Constants {
 
 public struct TMDBService {
 
-    func getDiscover(page: Int) {
+    static func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {
         let urlString = Constants.baseURL + Constants.discoverPath
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey,
                                       Constants.primaryReleaseDateLetFieldName: Constants.primaryReleaseDateLte,
@@ -36,26 +36,25 @@ public struct TMDBService {
         
         Alamofire.AF.request(urlString, parameters:parameters).responseJSON { response in
             let decoder = JSONDecoder()
-            print(response)
             let decoderData: Result<Discover> = decoder.decodeResponse(from: response)
             if decoderData.isSuccess, let discover = decoderData.value {
-                print (discover)
+                completion(discover)
             } else {
                 print ("error")
             }
         }
     }
     
-    func getMovie(movieId: Int) {
+    static func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?) -> Void) {
         let urlString = Constants.baseURL + Constants.moviePath + String(movieId)
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey]
         
         Alamofire.AF.request(urlString, parameters:parameters).responseJSON { response in
             let decoder = JSONDecoder()
-            print(response)
+
             let movieData: Result<Movie> = decoder.decodeResponse(from: response)
             if movieData.isSuccess, let movie = movieData.value {
-                print (movie)
+                completion(movie)
             } else {
                 print ("error")
             }
@@ -71,7 +70,6 @@ private extension JSONDecoder {
         }
         
         guard let responseData = response.data else {
-            print("didn't get any data from API")
             return .failure(response.error!)
         }
         
@@ -79,8 +77,6 @@ private extension JSONDecoder {
             let item = try decode(T.self, from: responseData)
             return .success(item)
         } catch {
-            print("error trying to decode response")
-            print(error)
             return .failure(error)
         }
     }

@@ -24,6 +24,7 @@ protocol MovieViewOutput {
     func viewDidAppear()
     func viewWillDisappear()
     func viewDidDisappear()
+    func didTapBookNow()
 }
 
 // MARK: - Interactor Input & Output
@@ -34,4 +35,6 @@ protocol MovieInteractorOutput: class {}
 
 // MARK: - Router Input
 
-protocol MovieRouterInput {}
+protocol MovieRouterInput {
+    func gotoWebView()
+}

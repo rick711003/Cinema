@@ -31,4 +31,7 @@ extension MoviePresenter: MovieViewOutput {
     func viewDidAppear() {}
     func viewWillDisappear() {}
     func viewDidDisappear() {}
+    func didTapBookNow() {
+        router?.gotoWebView()
+    }
 }

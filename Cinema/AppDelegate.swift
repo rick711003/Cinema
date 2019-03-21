@@ -12,10 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        settingDefaultViewController()
         return true
     }
 
@@ -41,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    private func settingDefaultViewController() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        navigationController = UINavigationController()
+        let discoverBuilder = DiscoverBuilder()
+        let discoverViewController = discoverBuilder.build()
+        navigationController?.pushViewController(discoverViewController, animated: false)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
 }
 

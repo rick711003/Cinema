@@ -15,5 +15,8 @@ final class MovieRouter {
 
 // MARK: - MovieRouterInput
 extension MovieRouter: MovieRouterInput {
-    
+    func gotoWebView() {
+        let webViewCtrl = WebViewController()
+        viewController?.navigationController?.pushViewController(webViewCtrl, animated: true)
+    }
 }

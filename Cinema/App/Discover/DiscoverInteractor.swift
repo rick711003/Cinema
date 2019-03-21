@@ -10,10 +10,15 @@ import Foundation
 
 final class DiscoverInteractor {
     weak var output: DiscoverInteractorOutput?
-    
 }
 
 // MARK: - DiscoverInteractorInput
 extension DiscoverInteractor: DiscoverInteractorInput {
-    
+    func goToDiscoverNextPage(nextPage: Int = 0) {
+        TMDBService.getDiscover(page: nextPage) { (discover) in
+            if let discover: Discover = discover {
+                self.output?.didGetDiscoverData(discover: discover)
+            }
+        }
+    }
 }

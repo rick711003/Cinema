@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct DiscoverCellViewModel {
+    var imageNames: [String] = []
+    var title: String = ""
+    var popularity: Float = 0.0
+}

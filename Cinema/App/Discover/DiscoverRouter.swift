@@ -15,5 +15,8 @@ final class DiscoverRouter {
 
 // MARK: - DiscoverRouterInput
 extension DiscoverRouter: DiscoverRouterInput {
-    
+    func gotoMovieDetail(movideId: Int) {
+        let movieCtrl = MovieBuilder().build()
+        viewController?.navigationController?.pushViewController(movieCtrl, animated: true)
+    }
 }

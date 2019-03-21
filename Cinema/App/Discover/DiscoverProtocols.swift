@@ -16,7 +16,13 @@ public protocol DiscoverPresenterOutput: class {}
 
 // MARK: - View Input & Output
 
-protocol DiscoverViewInput: class {}
+protocol DiscoverCellDelegate: class {
+    func didTapDiscover(_ cell: DiscoverCell)
+}
+
+protocol DiscoverViewInput: class {
+    func discoverReloadData(discover: Discover)
+}
 
 protocol DiscoverViewOutput {
     func viewIsReady()
@@ -24,14 +30,21 @@ protocol DiscoverViewOutput {
     func viewDidAppear()
     func viewWillDisappear()
     func viewDidDisappear()
+    func didTapDiscoverCell(cellIndex: Int)
 }
 
 // MARK: - Interactor Input & Output
 
-protocol DiscoverInteractorInput {}
+protocol DiscoverInteractorInput {
+    func goToDiscoverNextPage(nextPage: Int)
+}
 
-protocol DiscoverInteractorOutput: class {}
+protocol DiscoverInteractorOutput: class {
+    func didGetDiscoverData(discover: Discover)
+}
 
 // MARK: - Router Input
 
-protocol DiscoverRouterInput {}
+protocol DiscoverRouterInput {
+    func gotoMovieDetail(movideId: Int)
+}

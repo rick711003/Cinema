@@ -25,6 +25,11 @@ public final class DiscoverViewController: UIViewController {
         output?.viewIsReady()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output?.viewWillAppear()
+    }
+    
     @objc private func refreshDisverData(_ sender: Any) {
         refreshControl.beginRefreshing()
         output?.refreshDiscoverData()
@@ -68,6 +73,11 @@ private extension DiscoverViewController {
 
 // MARK: - DiscoverViewInput
 extension DiscoverViewController: DiscoverViewInput {
+    
+    func updateNavigationTitle(with navigationTitle: String) {
+        title = navigationTitle
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+    }
     
     func discoverReloadData(viewModel: DiscoverViewModel) {
         if refreshControl.isRefreshing {

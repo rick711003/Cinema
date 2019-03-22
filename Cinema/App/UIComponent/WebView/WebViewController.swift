@@ -19,9 +19,11 @@ class WebViewController: UIViewController, WKUIDelegate {
         webView.uiDelegate = self
         view = webView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Book Now"
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         let myURL = URL(string:"https://www.cathaycineplexes.com.sg/")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)

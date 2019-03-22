@@ -11,11 +11,13 @@ import Foundation
 // MARK: - View Input & Output
 
 protocol MovieViewInput: class {
+    func updateNavigationTitle(with navigationTitle: String)
     func movieReloadData(viewModel: MovieViewModel)
 }
 
 protocol MovieViewOutput {
     func viewIsReady()
+    func viewWillAppear()
     func didTapBookNow()
 }
 

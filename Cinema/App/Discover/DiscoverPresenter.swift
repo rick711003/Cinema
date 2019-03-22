@@ -48,13 +48,18 @@ extension DiscoverPresenter: DiscoverViewOutput {
         loadData()
     }
     
+    func viewWillAppear() {
+        view?.updateNavigationTitle(with: viewModel.navigationTitle)
+    }
+    
     func didTapDiscoverCell(cellIndex: Int) {
         guard let dataSource = viewModel.dataSource,
-            let movieId = dataSource[cellIndex].movieId else {
+            let movieId = dataSource[cellIndex].movieId,
+            let movieName = dataSource[cellIndex].title else {
             return
         }
         
-        router?.gotoMovieDetail(movideId: movieId)
+        router?.gotoMovieDetail(movideId: movieId, movieName: movieName)
     }
     
     func refreshDiscoverData() {

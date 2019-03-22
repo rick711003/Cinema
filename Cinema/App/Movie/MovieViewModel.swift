@@ -8,11 +8,13 @@
 
 public struct MovieViewModel {
     
-    public var movieId: Int
+    public let movieId: Int
+    public let movieName: String
     public var movie: Movie?
     public var cellTitleName = ["Synopsis", "Genres", "Language", "Duration"]
-    init(movieId: Int) {
+    init(movieId: Int, movieName: String) {
         self.movieId = movieId
+        self.movieName = movieName
     }
     
 }

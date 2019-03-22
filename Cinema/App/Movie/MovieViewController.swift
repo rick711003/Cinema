@@ -30,6 +30,11 @@ public final class MovieViewController: UIViewController {
         output?.viewIsReady()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output?.viewWillAppear()
+    }
+    
     @IBAction func tapBookNow(_ sender: UIButton) {
         output?.didTapBookNow()
     }
@@ -107,6 +112,12 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - MovieViewInput
 extension MovieViewController: MovieViewInput {
+    
+    func updateNavigationTitle(with navigationTitle: String) {
+        title = navigationTitle
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+    }
+    
     func movieReloadData(viewModel: MovieViewModel) {
         self.viewModel = viewModel
         self.tableView.reloadData()

@@ -44,6 +44,10 @@ extension MoviePresenter: MovieViewOutput {
         loadData()
     }
     
+    func viewWillAppear() {
+        view?.updateNavigationTitle(with: viewModel.movieName)
+    }
+    
     func didTapBookNow() {
         router?.gotoWebView()
     }

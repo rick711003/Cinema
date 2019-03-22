@@ -17,11 +17,13 @@ protocol DiscoverCellDelegate: class {
 // MARK: - View Input & Output
 
 protocol DiscoverViewInput: class {
+    func updateNavigationTitle(with navigationTitle: String)
     func discoverReloadData(viewModel: DiscoverViewModel)
 }
 
 protocol DiscoverViewOutput {
     func viewIsReady()
+    func viewWillAppear()
     func didTapDiscoverCell(cellIndex: Int)
     func refreshDiscoverData()
     func loadNextPage()
@@ -40,5 +42,5 @@ protocol DiscoverInteractorOutput: class {
 // MARK: - Router Input
 
 protocol DiscoverRouterInput {
-    func gotoMovieDetail(movideId: Int)
+    func gotoMovieDetail(movideId: Int, movieName: String)
 }

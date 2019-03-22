@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiscoverViewController" customModule="Cinema">
             <connections>
+                <outlet property="activityIndicator" destination="nzs-PV-D74" id="SvK-G2-Gvk"/>
                 <outlet property="tableView" destination="pZj-aR-zdE" id="Pqk-0m-oUA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ssN-XP-oWm"/>
             </connections>
@@ -30,6 +31,11 @@
                         <outlet property="delegate" destination="-1" id="23W-Uo-CKq"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nzs-PV-D74">
+                    <rect key="frame" x="170" y="316" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -39,6 +45,7 @@
                 <constraint firstItem="pZj-aR-zdE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="pLg-LL-elM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
 </document>

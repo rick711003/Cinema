@@ -14,7 +14,7 @@ public final class DiscoverViewController: UIViewController {
     var output: DiscoverViewOutput?
     
     @IBOutlet private var tableView: UITableView!
-    
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     private let cellNibName = String(describing: DiscoverCell.self)
     private let refreshControl = UIRefreshControl()
     private var viewModel: DiscoverViewModel?
@@ -87,6 +87,9 @@ extension DiscoverViewController: DiscoverViewInput {
                 self.tableView.reloadData()
             }
         } else {
+            if activityIndicator.isAnimating {
+                activityIndicator.stopAnimating()
+            }
             self.viewModel = viewModel
             tableView.reloadData()
         }

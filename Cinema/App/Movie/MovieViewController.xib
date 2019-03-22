@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieViewController" customModule="Cinema">
             <connections>
+                <outlet property="activityIndicator" destination="34h-2C-3ns" id="t6P-dB-L2U"/>
                 <outlet property="tableView" destination="9oX-bC-x4k" id="XQP-fZ-h57"/>
                 <outlet property="view" destination="iN0-l3-epB" id="H4Z-Tu-xfI"/>
             </connections>
@@ -44,11 +45,17 @@
                         <action selector="tapBookNow:" destination="-1" eventType="touchUpInside" id="riD-ws-YHB"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="34h-2C-3ns">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9oX-bC-x4k" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1HY-Yc-ZME"/>
                 <constraint firstItem="0Ao-dn-ve4" firstAttribute="top" secondItem="9oX-bC-x4k" secondAttribute="bottom" id="6Qv-Jk-WmG"/>
+                <constraint firstItem="34h-2C-3ns" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AXf-k7-HJ2"/>
+                <constraint firstItem="34h-2C-3ns" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CDG-Qa-f3l"/>
                 <constraint firstItem="0Ao-dn-ve4" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="DVD-nm-XkB"/>
                 <constraint firstItem="0Ao-dn-ve4" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="FCC-JI-LOs"/>
                 <constraint firstItem="9oX-bC-x4k" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-44" id="K4y-1G-Mq6"/>

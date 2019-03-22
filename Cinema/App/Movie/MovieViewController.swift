@@ -18,6 +18,7 @@ public final class MovieViewController: UIViewController {
     private let colors: [UIColor] = [.lightGray, .white]
     private var viewModel: MovieViewModel?
     
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Life cycle
@@ -119,6 +120,9 @@ extension MovieViewController: MovieViewInput {
     }
     
     func movieReloadData(viewModel: MovieViewModel) {
+        if activityIndicator.isAnimating {
+            activityIndicator.stopAnimating()
+        }
         self.viewModel = viewModel
         self.tableView.reloadData()
     }

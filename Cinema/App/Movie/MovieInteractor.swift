@@ -15,5 +15,12 @@ final class MovieInteractor {
 
 // MARK: - MovieInteractorInput
 extension MovieInteractor: MovieInteractorInput {
-    
+    func requestMovie(movieId: Int) {
+        TMDBService.getMovie(movieId: movieId) { (movie) in
+            if let movie: Movie = movie {
+                self.output?.didReceiveMovieData(movie: movie)
+            }
+        }
+
+    }
 }

@@ -84,6 +84,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomContentView" destination="SlT-zA-2GU" id="jAd-IK-LA1"/>
+                <outlet property="popularityScoreLabel" destination="q9V-HZ-vdM" id="sy1-xp-pwi"/>
+                <outlet property="titleLabel" destination="udu-Ku-tZo" id="qZL-Dp-Xcl"/>
                 <outlet property="topContentView" destination="vrj-gB-Dfb" id="cuM-uu-jLI"/>
             </connections>
             <point key="canvasLocation" x="32.799999999999997" y="-57.571214392803604"/>

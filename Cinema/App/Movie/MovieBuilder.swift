@@ -12,7 +12,7 @@ public struct MovieBuilder {
     
     public init() {}
     
-    public func build() -> MovieViewController {
+    public func  build(with model: MovieViewModel) -> MovieViewController {
         
         let nibName = String(describing: MovieViewController.self)
         let viewController = MovieViewController(nibName: nibName, bundle: nil)
@@ -20,12 +20,13 @@ public struct MovieBuilder {
         let router = MovieRouter()
         router.viewController = viewController
         
-        let presenter = MoviePresenter()
+        let presenter = MoviePresenter(with: model)
         presenter.view = viewController
         presenter.router = router
         
         let interactor = MovieInteractor()
         interactor.output = presenter
+        presenter.interactor = interactor
         
         viewController.output = presenter
         return viewController

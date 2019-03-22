@@ -16,6 +16,8 @@
 		9FA1D90F2242D63C006381C6 /* MovieDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA1D90E2242D63C006381C6 /* MovieDetailsCell.xib */; };
 		9FA1D9112242D65C006381C6 /* MovieDetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1D9102242D65C006381C6 /* MovieDetailsCellViewModel.swift */; };
 		9FA1E3042243CE51006381C6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1E3032243CE51006381C6 /* WebViewController.swift */; };
+		9FA1E3E22243D5A3006381C6 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1E3E12243D5A3006381C6 /* DiscoverViewModel.swift */; };
+		9FA1E3E42243D5CC006381C6 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1E3E32243D5CC006381C6 /* MovieViewModel.swift */; };
 		9FBD33202241533300DEBC0C /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD331F2241533300DEBC0C /* Discover.swift */; };
 		9FBD33222241536700DEBC0C /* DiscoverDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD33212241536700DEBC0C /* DiscoverDetail.swift */; };
 		9FBD3326224173A500DEBC0C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD3325224173A500DEBC0C /* Movie.swift */; };
@@ -78,6 +80,8 @@
 		9FA1D90E2242D63C006381C6 /* MovieDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsCell.xib; sourceTree = "<group>"; };
 		9FA1D9102242D65C006381C6 /* MovieDetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCellViewModel.swift; sourceTree = "<group>"; };
 		9FA1E3032243CE51006381C6 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		9FA1E3E12243D5A3006381C6 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		9FA1E3E32243D5CC006381C6 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		9FBD331F2241533300DEBC0C /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		9FBD33212241536700DEBC0C /* DiscoverDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetail.swift; sourceTree = "<group>"; };
 		9FBD3325224173A500DEBC0C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				9FBD334122427EA900DEBC0C /* DiscoverViewController.swift */,
 				9FBD334322427EC000DEBC0C /* DiscoverViewController.xib */,
 				9FBD335122427F9100DEBC0C /* DiscoverProtocols.swift */,
+				9FA1E3E12243D5A3006381C6 /* DiscoverViewModel.swift */,
+				9FBD331E2241520E00DEBC0C /* Service */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				9FBD334D22427F2E00DEBC0C /* MovieViewController.swift */,
 				9FBD334F22427F4100DEBC0C /* MovieViewController.xib */,
 				9FBD335322427F9F00DEBC0C /* MovieProtocols.swift */,
+				9FA1E3E32243D5CC006381C6 /* MovieViewModel.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -308,7 +315,6 @@
 		9FD3DF9622414A93004DE327 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9FBD331E2241520E00DEBC0C /* Service */,
 				9FBD331D2241520600DEBC0C /* Model */,
 			);
 			path = Core;
@@ -575,6 +581,7 @@
 				9FA1E3042243CE51006381C6 /* WebViewController.swift in Sources */,
 				9FBD334222427EA900DEBC0C /* DiscoverViewController.swift in Sources */,
 				9FBD3326224173A500DEBC0C /* Movie.swift in Sources */,
+				9FA1E3E22243D5A3006381C6 /* DiscoverViewModel.swift in Sources */,
 				9FBD334E22427F2E00DEBC0C /* MovieViewController.swift in Sources */,
 				9FBD334822427EF300DEBC0C /* MoviePresenter.swift in Sources */,
 				9FBD334022427E9800DEBC0C /* DiscoverInteractor.swift in Sources */,
@@ -588,6 +595,7 @@
 				9FD3DF6B224146CC004DE327 /* ViewController.swift in Sources */,
 				9FBD333E22427E8300DEBC0C /* DiscoverRouter.swift in Sources */,
 				9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */,
+				9FA1E3E42243D5CC006381C6 /* MovieViewModel.swift in Sources */,
 				9FBD332E2241793600DEBC0C /* SpokenLanguages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

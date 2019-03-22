@@ -11,47 +11,23 @@ import UIKit
 
 public final class MovieViewController: UIViewController {
     var output: MovieViewOutput?
-    private let cellNibNames: [String] = [String(describing: DiscoverCell.self),
-                                          String(describing: MovieDetailsCell.self),
-                                          String(describing: MovieDetailsCell.self),
-                                          String(describing: MovieDetailsCell.self),
-                                          String(describing: MovieDetailsCell.self),
-                                          String(describing: MovieDetailsCell.self),
-                                          "Cell"]
+    enum cellNibNames: String {
+        case DiscoverCell
+        case MovieDetailsCell
+    }
     private let colors: [UIColor] = [.lightGray, .white]
+    private var viewModel: MovieViewModel?
+    
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Life cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        for cellNibName in cellNibNames {
-            let nibObject = UINib(nibName: cellNibName, bundle: nil)
-            tableView.register(nibObject, forCellReuseIdentifier: cellNibName)
-        }
+        tableView.register(UINib(nibName: cellNibNames.DiscoverCell.rawValue, bundle: nil),
+                           forCellReuseIdentifier: cellNibNames.DiscoverCell.rawValue)
+        tableView.register(UINib(nibName: cellNibNames.MovieDetailsCell.rawValue, bundle: nil),
+                           forCellReuseIdentifier: cellNibNames.MovieDetailsCell.rawValue)
         output?.viewIsReady()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        output?.viewWillAppear()
-    }
-    
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        output?.viewDidAppear()
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        output?.viewWillDisappear()
-        
-        super.viewWillDisappear(animated)
-    }
-    
-    override public func viewDidDisappear(_ animated: Bool) {
-        output?.viewDidDisappear()
-        
-        super.viewDidDisappear(animated)
     }
     
     @IBAction func tapBookNow(_ sender: UIButton) {
@@ -59,33 +35,71 @@ public final class MovieViewController: UIViewController {
     }
 }
 
+private extension MovieViewController {
+    func transformImageURL(subURL: String?) -> String {
+        guard let subURL = subURL else {
+            return ""
+        }
+        let imageBaseURL = "https://image.tmdb.org/t/p/w500"
+        return imageBaseURL + subURL
+    }
+    
+    func generateDescription(keyWord: String) -> String {
+        guard let movie = viewModel?.movie else {
+            return ""
+        }
+        switch keyWord {
+        case "Synopsis":
+            return movie.overview ?? ""
+        case "Genres":
+            return movie.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? ""
+        case "Language":
+            return movie.spokenLanguages?.map({ $0.name ?? ""}).joined(separator: ", ") ?? ""
+        case "Duration":
+            return "\(movie.runtime ?? 0) mins"
+        default:
+            return ""
+        }
+    }
+}
+
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        guard viewModel?.movie != nil else {
+            return 0
+        }
+        return 5
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row <= 5 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibNames[indexPath.row]) else {
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibNames.DiscoverCell.rawValue),
+            let movie = viewModel?.movie else {
                 fatalError("Can not dequeue cell")
             }
             cell.selectionStyle = .none
             
-            if let discoverCell = cell as? DiscoverCell, indexPath.row == 0 {
+            if let discoverCell = cell as? DiscoverCell {
                 discoverCell.configCell(cellViewModel: DiscoverCellViewModel(
-                    imageNames: ["https://image.tmdb.org/t/p/w500/elxRzqfone6RZYM5150UFEy5A7x.jpg",
-                                 "https://image.tmdb.org/t/p/w500/3CDHvH8pRz4bYnXjwQzhuqzil2X.jpg",
-                                 "https://image.tmdb.org/t/p/w500/pdxPtmuuOGbUV1QI1ySsOcYV4tW.jpg"],
-                    title: "American Casino",
-                    popularity: 0.6))
-            } else if let movieDetailsCell = cell as? MovieDetailsCell {
-                movieDetailsCell.configCell(cellViewModel: MovieDetailsCellViewModel(title:"Overview",
-                                                                                     subTitle: "The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes.", backgroundColor: colors[indexPath.row % 2]))
+                    imageNames: [transformImageURL(subURL: movie.backdropPath),
+                                 transformImageURL(subURL: movie.posterPath)],
+                    title: movie.originalTitle ?? "",
+                    popularity: movie.popularity ??  0.0))
             }
-            
             return cell
         } else {
-            let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: cellNibNames[indexPath.row])
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibNames.MovieDetailsCell.rawValue),
+             let viewModel = viewModel else {
+                fatalError("Can not dequeue cell")
+            }
+            cell.selectionStyle = .none
+            if let movieDetailsCell = cell as? MovieDetailsCell {
+                let title =  viewModel.cellTitleName[indexPath.row - 1]
+                let cellViewModel = MovieDetailsCellViewModel(title: title,
+                                                              description: generateDescription(keyWord: title),
+                                                              backgroundColor: colors[indexPath.row % 2])
+                movieDetailsCell.configCell(cellViewModel: cellViewModel)
+            }
             return cell
         }
     }
@@ -93,4 +107,8 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - MovieViewInput
 extension MovieViewController: MovieViewInput {
+    func movieReloadData(viewModel: MovieViewModel) {
+        self.viewModel = viewModel
+        self.tableView.reloadData()
+    }
 }

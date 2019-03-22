@@ -23,6 +23,8 @@ class MovieDetailsCell: UITableViewCell {
             return
         }
         self.viewModel = viewModel
+        self.titleLabel.text = viewModel.title
+        self.descriptionLabel.text = viewModel.description
         self.contentView.backgroundColor = viewModel.backgroundColor
     }
 }

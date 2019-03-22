@@ -8,30 +8,26 @@
 
 import Foundation
 
-// MARK: - Presenter Input & Output
-
-public protocol MoviePresenterInput: class {}
-
-public protocol MoviePresenterOutput: class {}
-
 // MARK: - View Input & Output
 
-protocol MovieViewInput: class {}
+protocol MovieViewInput: class {
+    func movieReloadData(viewModel: MovieViewModel)
+}
 
 protocol MovieViewOutput {
     func viewIsReady()
-    func viewWillAppear()
-    func viewDidAppear()
-    func viewWillDisappear()
-    func viewDidDisappear()
     func didTapBookNow()
 }
 
 // MARK: - Interactor Input & Output
 
-protocol MovieInteractorInput {}
+protocol MovieInteractorInput {
+    func requestMovie(movieId: Int)
+}
 
-protocol MovieInteractorOutput: class {}
+protocol MovieInteractorOutput: class {
+    func didReceiveMovieData(movie: Movie)
+}
 
 // MARK: - Router Input
 

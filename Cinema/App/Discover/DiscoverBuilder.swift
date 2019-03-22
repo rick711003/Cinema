@@ -12,7 +12,7 @@ public struct DiscoverBuilder {
     
     public init() {}
     
-    public func build() -> DiscoverViewController {
+    public func build(with model: DiscoverViewModel) -> DiscoverViewController {
         
         let nibName = String(describing: DiscoverViewController.self)
         let viewController = DiscoverViewController(nibName: nibName, bundle: nil)
@@ -20,12 +20,13 @@ public struct DiscoverBuilder {
         let router = DiscoverRouter()
         router.viewController = viewController
         
-        let presenter = DiscoverPresenter()
+        let presenter = DiscoverPresenter(with: model)
         presenter.view = viewController
         presenter.router = router
         
         let interactor = DiscoverInteractor()
         interactor.output = presenter
+        presenter.interactor = interactor
         
         viewController.output = presenter
         return viewController

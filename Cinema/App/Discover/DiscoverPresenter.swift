@@ -9,39 +9,60 @@
 import Foundation
 
 final class DiscoverPresenter {
+    
     weak var view: DiscoverViewInput?
     var interactor: DiscoverInteractorInput?
     var router: DiscoverRouterInput?
-    var currentPage: Int = 0
+    
+    private var viewModel: DiscoverViewModel
+    
+    init(with model: DiscoverViewModel) {
+        self.viewModel = model
+    }
 }
 
-// MARK: - DiscoverPresenterInput
-extension DiscoverPresenter: DiscoverPresenterInput {
+private extension DiscoverPresenter {
     
+    func loadData(_ page: Int = 1) {
+        guard let interactor = interactor else {
+            return
+        }
+        interactor.requestDiscover(page: page)
+    }
 }
 
 // MARK: - DiscoverInteractorOutput
 extension DiscoverPresenter: DiscoverInteractorOutput {
-    func didGetDiscoverData(discover: Discover) {
-        currentPage = currentPage + 1
-        view?.discoverReloadData(discover: discover)
+
+    func didReceiveDiscoverData(discover: Discover) {
+        viewModel.discoverResponse = discover
+        viewModel.appendDataSource()
+        view?.discoverReloadData(viewModel: viewModel)
     }
 }
 
 // MARK: - DiscoverViewOutput
 extension DiscoverPresenter: DiscoverViewOutput {
-    func viewIsReady() {}
-    func viewWillAppear() {
-        guard let interactor = interactor else {
-            return
-        }
-        interactor.goToDiscoverNextPage(nextPage: currentPage)
+    
+    func viewIsReady() {
+        loadData()
     }
-    func viewDidAppear() {}
-    func viewWillDisappear() {}
-    func viewDidDisappear() {}
     
     func didTapDiscoverCell(cellIndex: Int) {
-        router?.gotoMovieDetail(movideId: cellIndex)
+        guard let dataSource = viewModel.dataSource,
+            let movieId = dataSource[cellIndex].movieId else {
+            return
+        }
+        
+        router?.gotoMovieDetail(movideId: movieId)
+    }
+    
+    func refreshDiscoverData() {
+        loadData()
+    }
+    
+    func loadNextPage() {
+        viewModel.currentPage = viewModel.currentPage + 1
+        loadData(viewModel.currentPage)
     }
 }

@@ -45,8 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func settingDefaultViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
         navigationController = UINavigationController()
+        let discoverViewModel = DiscoverViewModel()
         let discoverBuilder = DiscoverBuilder()
-        let discoverViewController = discoverBuilder.build()
+        let discoverViewController = discoverBuilder.build(with: discoverViewModel)
         navigationController?.pushViewController(discoverViewController, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

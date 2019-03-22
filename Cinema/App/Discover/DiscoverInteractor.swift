@@ -14,11 +14,13 @@ final class DiscoverInteractor {
 
 // MARK: - DiscoverInteractorInput
 extension DiscoverInteractor: DiscoverInteractorInput {
-    func goToDiscoverNextPage(nextPage: Int = 0) {
-        TMDBService.getDiscover(page: nextPage) { (discover) in
+    
+    func requestDiscover(page: Int = 1) {
+        TMDBService.getDiscover(page: page) { (discover) in
             if let discover: Discover = discover {
-                self.output?.didGetDiscoverData(discover: discover)
+                self.output?.didReceiveDiscoverData(discover: discover)
             }
         }
     }
+
 }

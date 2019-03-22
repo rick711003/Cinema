@@ -8,39 +8,33 @@
 
 import Foundation
 
-// MARK: - Presenter Input & Output
-
-public protocol DiscoverPresenterInput: class {}
-
-public protocol DiscoverPresenterOutput: class {}
-
-// MARK: - View Input & Output
+// MARK: - DiscoverCell Delegate
 
 protocol DiscoverCellDelegate: class {
     func didTapDiscover(_ cell: DiscoverCell)
 }
 
+// MARK: - View Input & Output
+
 protocol DiscoverViewInput: class {
-    func discoverReloadData(discover: Discover)
+    func discoverReloadData(viewModel: DiscoverViewModel)
 }
 
 protocol DiscoverViewOutput {
     func viewIsReady()
-    func viewWillAppear()
-    func viewDidAppear()
-    func viewWillDisappear()
-    func viewDidDisappear()
     func didTapDiscoverCell(cellIndex: Int)
+    func refreshDiscoverData()
+    func loadNextPage()
 }
 
 // MARK: - Interactor Input & Output
 
 protocol DiscoverInteractorInput {
-    func goToDiscoverNextPage(nextPage: Int)
+    func requestDiscover(page: Int)
 }
 
 protocol DiscoverInteractorOutput: class {
-    func didGetDiscoverData(discover: Discover)
+    func didReceiveDiscoverData(discover: Discover)
 }
 
 // MARK: - Router Input

@@ -11,6 +11,6 @@ import UIKit
 
 struct MovieDetailsCellViewModel {
     var title: String = ""
-    var subTitle: String = ""
+    var description: String = ""
     var backgroundColor: UIColor
 }

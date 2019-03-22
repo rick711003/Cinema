@@ -13,97 +13,125 @@ public final class DiscoverViewController: UIViewController {
 
     var output: DiscoverViewOutput?
     
+    @IBOutlet private var tableView: UITableView!
+    
     private let cellNibName = String(describing: DiscoverCell.self)
     private let refreshControl = UIRefreshControl()
-    @IBOutlet private weak var tableView: UITableView!
+    private var viewModel: DiscoverViewModel?
     
-    // MARK: - Life cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+        output?.viewIsReady()
+    }
+    
+    @objc private func refreshDisverData(_ sender: Any) {
+        refreshControl.beginRefreshing()
+        output?.refreshDiscoverData()
+    }
+}
+
+private extension DiscoverViewController {
+
+    func setupView() {
         let nibObject = UINib(nibName: cellNibName, bundle: nil)
         tableView.register(nibObject, forCellReuseIdentifier: cellNibName)
+        tableView.tableFooterView = UIView()
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
-        output?.viewIsReady()
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh...")
+        refreshControl.addTarget(self, action: #selector(refreshDisverData(_:)), for: .valueChanged)
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        output?.viewWillAppear()
-    }
-    
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        output?.viewDidAppear()
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        output?.viewWillDisappear()
-        
-        super.viewWillDisappear(animated)
-    }
-    
-    override public func viewDidDisappear(_ animated: Bool) {
-        output?.viewDidDisappear()
-        
-        super.viewDidDisappear(animated)
-    }
-    
-    @objc private func refreshWeatherData(_ sender: Any) {
-        print(refreshWeatherData)
-        tableView.reloadData()
-        refreshControl.endRefreshing()
-    }
-
-}
-
-extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
-    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        print("prefetching")
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibName) else {
-            fatalError("Can not dequeue cell")
+   func dataSource() -> [DiscoverDetail]? {
+        guard let dataSource  = self.viewModel?.dataSource else {
+            return nil
         }
-        cell.selectionStyle = .none
-        
-        if let discoverCell = cell as? DiscoverCell {
-            discoverCell.configCell(cellViewModel: DiscoverCellViewModel(
-                imageNames: ["https://image.tmdb.org/t/p/w500/elxRzqfone6RZYM5150UFEy5A7x.jpg",
-                             "https://image.tmdb.org/t/p/w500/3CDHvH8pRz4bYnXjwQzhuqzil2X.jpg",
-                             "https://image.tmdb.org/t/p/w500/pdxPtmuuOGbUV1QI1ySsOcYV4tW.jpg"],
-                title: "American Casino",
-                popularity: 0.6))
-            discoverCell.delegate = self
+        return dataSource
+    }
+    
+    func transformImageURL(subURL: String?) -> String {
+        guard let subURL = subURL else {
+            return ""
         }
-        
-        return cell
+        let imageBaseURL = "https://image.tmdb.org/t/p/w500"
+        return imageBaseURL + subURL
+    }
+    
+    func loadNextPage() -> [DiscoverDetail]? {
+        return nil
     }
 }
 
 // MARK: - DiscoverViewInput
 extension DiscoverViewController: DiscoverViewInput {
-    func discoverReloadData(discover: Discover) {
     
+    func discoverReloadData(viewModel: DiscoverViewModel) {
+        if refreshControl.isRefreshing {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.refreshControl.endRefreshing()
+                self.viewModel = viewModel
+                self.tableView.reloadData()
+            }
+        } else {
+            self.viewModel = viewModel
+            tableView.reloadData()
+        }
     }
 }
 
+// MARK: - DiscoverCellDelegate
 extension DiscoverViewController: DiscoverCellDelegate {
+    
     func didTapDiscover(_ cell: DiscoverCell) {
         guard let indexPath = self.tableView.indexPath(for: cell) else {
             return
         }
         output?.didTapDiscoverCell(cellIndex: indexPath.row)
+    }
+    
+}
+
+
+extension DiscoverViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let dataSource = dataSource() else {
+            return
+        }
+        let lastElement = dataSource.count - 1
+        if indexPath.row == lastElement {
+            output?.loadNextPage()
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = dataSource() else {
+            return 0
+        }
+        return dataSource.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibName),
+            let results = dataSource() else {
+                fatalError("Can not dequeue cell")
+        }
+        
+        cell.selectionStyle = .none
+        
+        if let discoverCell = cell as? DiscoverCell {
+            discoverCell.configCell(cellViewModel: DiscoverCellViewModel(
+                imageNames: [transformImageURL(subURL: results[indexPath.row].backdropPath),
+                             transformImageURL(subURL: results[indexPath.row].posterPath)],
+                title: results[indexPath.row].title ?? "",
+                popularity: results[indexPath.row].popularity ?? 0.0))
+            discoverCell.delegate = self
+        }
+        
+        return cell
     }
 }

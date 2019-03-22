@@ -18,6 +18,8 @@ private struct Constants {
 class DiscoverCell: UITableViewCell {
     
     @IBOutlet weak var bottomContentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var popularityScoreLabel: UILabel!
     @IBOutlet weak var topContentView: FSPagerView! {
         didSet {
             self.topContentView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
@@ -29,9 +31,10 @@ class DiscoverCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.topContentView.transformer = FSPagerViewTransformer(type:.coverFlow)
-        self.topContentView.itemSize = CGSize(width: 220, height: 170)
-        self.topContentView.decelerationDistance = FSPagerView.automaticDistance
+        self.topContentView.transformer = FSPagerViewTransformer(type:.cubic)
+        let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        self.topContentView.itemSize = topContentView.frame.size.applying(transform)
+        self.topContentView.decelerationDistance = 1
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.addGestureRecognizer(tap)
     }
@@ -41,6 +44,9 @@ class DiscoverCell: UITableViewCell {
             return
         }
         self.viewModel = viewModel
+        titleLabel.text = viewModel.title
+        popularityScoreLabel.text = String(viewModel.popularity)
+        topContentView.reloadData()
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {

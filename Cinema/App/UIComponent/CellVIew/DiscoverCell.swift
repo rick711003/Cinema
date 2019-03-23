@@ -10,11 +10,6 @@ import UIKit
 import FSPagerView
 import SDWebImage
 
-private struct Constants {
-    static let cellIdentifier = "cell"
-    static let placeholderImageName = "placeholder.png"
-}
-
 class DiscoverCell: UITableViewCell {
     
     @IBOutlet weak var bottomContentView: UIView!
@@ -23,6 +18,13 @@ class DiscoverCell: UITableViewCell {
     @IBOutlet weak var topContentView: FSPagerView! {
         didSet {
             self.topContentView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+            self.topContentView.itemSize = FSPagerView.automaticSize
+        }
+    }
+    @IBOutlet weak var pageControl: FSPageControl! {
+        didSet {
+            self.pageControl.contentHorizontalAlignment = .right
+            self.pageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
     }
     
@@ -46,6 +48,7 @@ class DiscoverCell: UITableViewCell {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
         popularityScoreLabel.text = String(viewModel.popularity)
+        pageControl.numberOfPages = viewModel.imageNames.count
         topContentView.reloadData()
     }
     
@@ -54,7 +57,7 @@ class DiscoverCell: UITableViewCell {
     }
 }
 
-extension DiscoverCell : FSPagerViewDataSource {
+extension DiscoverCell : FSPagerViewDataSource, FSPagerViewDelegate {
     
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
         
@@ -85,5 +88,12 @@ extension DiscoverCell : FSPagerViewDataSource {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
     }
+    
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        self.pageControl.currentPage = targetIndex
+    }
+    
+    func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
+        self.pageControl.currentPage = pagerView.currentIndex
+    }
 }
-

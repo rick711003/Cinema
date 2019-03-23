@@ -60,7 +60,6 @@
 		9FBD335C2242AF1F00DEBC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD335B2242AF1F00DEBC0C /* Assets.xcassets */; };
 		9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF68224146CC004DE327 /* AppDelegate.swift */; };
 		9FD3DF73224146CF004DE327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3DF71224146CF004DE327 /* LaunchScreen.storyboard */; };
-		9FD3DF7E224146CF004DE327 /* CinemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF7D224146CF004DE327 /* CinemaTests.swift */; };
 		9FD3DF89224146CF004DE327 /* CinemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF88224146CF004DE327 /* CinemaUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,7 +139,6 @@
 		9FD3DF72224146CF004DE327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FD3DF74224146CF004DE327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD3DF79224146CF004DE327 /* CinemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FD3DF7D224146CF004DE327 /* CinemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTests.swift; sourceTree = "<group>"; };
 		9FD3DF7F224146CF004DE327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD3DF84224146CF004DE327 /* CinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD3DF88224146CF004DE327 /* CinemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaUITests.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 				9F1427D52246181200E71F0F /* Mock */,
 				9F1427D0224616BD00E71F0F /* App */,
 				9F1427CA224603A300E71F0F /* Core */,
-				9FD3DF7D224146CF004DE327 /* CinemaTests.swift */,
 				9FD3DF7F224146CF004DE327 /* Info.plist */,
 			);
 			path = CinemaTests;
@@ -721,7 +718,6 @@
 				9F1427D42246170400E71F0F /* DiscoverBuilderTests.swift in Sources */,
 				9F1427CD2246068600E71F0F /* TMDBServiceTests.swift in Sources */,
 				9F1427EF22465ACB00E71F0F /* MovieRouterTests.swift in Sources */,
-				9FD3DF7E224146CF004DE327 /* CinemaTests.swift in Sources */,
 				9F1427EB22465AAD00E71F0F /* MovieBuilderTests.swift in Sources */,
 				9F1427ED22465ABD00E71F0F /* MoviePresenterTests.swift in Sources */,
 				9F1427E12246322E00E71F0F /* DiscoverPresenterTests.swift in Sources */,

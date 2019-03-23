@@ -6,4 +6,31 @@
 //  Copyright © 2562 Chen, Rick (Agoda). All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import Cinema
+
+final class DiscoverBuilderTests: XCTestCase {
+    
+    private var builder: DiscoverBuilder!
+    
+    override func setUp() {
+        super.setUp()
+        builder = DiscoverBuilder()
+    }
+    
+    override func tearDown() {
+        builder = nil
+        super.tearDown()
+    }
+    
+    func testBuildForDiscover() {
+        // given
+        let discoverViewModel = DiscoverViewModel()
+        let service = TMDBService()
+        // when
+        let discoverViewController = builder.build(with: discoverViewModel, service: service)
+        
+        // then
+        XCTAssertTrue(discoverViewController.output is DiscoverPresenter)
+    }
+}

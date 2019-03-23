@@ -6,4 +6,34 @@
 //  Copyright © 2562 Chen, Rick (Agoda). All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import Cinema
+
+final class MovieRouterTests: XCTestCase {
+    
+    private var router: MovieRouter!
+    private var mockNavigationController: MockNavigationController!
+    
+    override func setUp() {
+        super.setUp()
+        let mockViewController = UIViewController()
+        mockNavigationController = MockNavigationController(rootViewController: mockViewController)
+        router = MovieRouter()
+        router.viewController = mockNavigationController.topViewController
+    }
+    
+    override func tearDown() {
+        mockNavigationController = nil
+        router = nil
+        super.tearDown()
+    }
+    
+    func testGotoMovieDetail() {
+        // when
+        router.gotoWebView()
+        
+        // then
+        XCTAssertTrue(mockNavigationController.pushCalled)
+        XCTAssertTrue(mockNavigationController.pushedViewController is WebViewController)
+    }
+}

@@ -24,6 +24,5 @@ extension MovieInteractor: MovieInteractorInput {
                 self.output?.didReceiveMovieData(movie: movie)
             }
         }
-
     }
 }

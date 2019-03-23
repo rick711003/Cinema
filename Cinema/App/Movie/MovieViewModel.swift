@@ -12,6 +12,7 @@ public struct MovieViewModel {
     public let movieName: String
     public var movie: Movie?
     public var cellTitleName = Constants.movieDetail
+    
     init(movieId: Int, movieName: String) {
         self.movieId = movieId
         self.movieName = movieName

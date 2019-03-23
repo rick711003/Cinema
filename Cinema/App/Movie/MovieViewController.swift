@@ -10,16 +10,18 @@ import Foundation
 import UIKit
 
 public final class MovieViewController: UIViewController {
-    var output: MovieViewOutput?
+    
     enum cellNibNames: String {
         case DiscoverCell
         case MovieDetailsCell
     }
+    var output: MovieViewOutput?
+    
     private let colors: [UIColor] = [.lightGray, .white]
     private var viewModel: MovieViewModel?
     
-    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life cycle
     public override func viewDidLoad() {
@@ -41,33 +43,7 @@ public final class MovieViewController: UIViewController {
     }
 }
 
-private extension MovieViewController {
-    func transformImageURL(subURL: String?) -> String {
-        guard let subURL = subURL else {
-            return ""
-        }
-        return Constants.imageBaseURL + subURL
-    }
-    
-    func generateDescription(keyWord: String) -> String {
-        guard let movie = viewModel?.movie else {
-            return ""
-        }
-        switch keyWord {
-        case MovieDetailType.synopsis.rawValue:
-            return movie.overview ?? ""
-        case MovieDetailType.genres.rawValue:
-            return movie.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? ""
-        case MovieDetailType.language.rawValue:
-            return movie.spokenLanguages?.map({ $0.name ?? ""}).joined(separator: ", ") ?? ""
-        case MovieDetailType.duration.rawValue:
-            return String(movie.runtime ?? 0) + Constants.minsString
-        default:
-            return ""
-        }
-    }
-}
-
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard viewModel?.movie != nil else {
@@ -124,5 +100,33 @@ extension MovieViewController: MovieViewInput {
         }
         self.viewModel = viewModel
         self.tableView.reloadData()
+    }
+}
+
+private extension MovieViewController {
+    
+    func transformImageURL(subURL: String?) -> String {
+        guard let subURL = subURL else {
+            return ""
+        }
+        return Constants.imageBaseURL + subURL
+    }
+    
+    func generateDescription(keyWord: String) -> String {
+        guard let movie = viewModel?.movie else {
+            return ""
+        }
+        switch keyWord {
+        case MovieDetailType.synopsis.rawValue:
+            return movie.overview ?? ""
+        case MovieDetailType.genres.rawValue:
+            return movie.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? ""
+        case MovieDetailType.language.rawValue:
+            return movie.spokenLanguages?.map({ $0.name ?? ""}).joined(separator: ", ") ?? ""
+        case MovieDetailType.duration.rawValue:
+            return String(movie.runtime ?? 0) + Constants.minsString
+        default:
+            return ""
+        }
     }
 }

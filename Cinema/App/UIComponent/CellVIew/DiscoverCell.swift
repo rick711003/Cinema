@@ -33,10 +33,7 @@ class DiscoverCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.topContentView.transformer = FSPagerViewTransformer(type:.zoomOut)
-        self.topContentView.decelerationDistance = 1
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        self.addGestureRecognizer(tap)
+        setupView()
     }
     
     func configCell(cellViewModel: DiscoverCellViewModel?) {
@@ -53,6 +50,15 @@ class DiscoverCell: UITableViewCell {
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         delegate?.didTapDiscover(self)
+    }
+}
+
+private extension DiscoverCell {
+    func setupView() {
+        self.topContentView.transformer = FSPagerViewTransformer(type:.zoomOut)
+        self.topContentView.decelerationDistance = 1
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        self.addGestureRecognizer(tap)
     }
 }
 

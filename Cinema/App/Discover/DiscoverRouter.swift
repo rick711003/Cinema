@@ -9,7 +9,6 @@
 import UIKit
 
 final class DiscoverRouter {
-    
     weak var viewController: UIViewController?
 }
 
@@ -20,7 +19,8 @@ extension DiscoverRouter: DiscoverRouterInput {
         let movieViewModel = MovieViewModel(movieId: movideId, movieName: movieName)
         let movieBuilder = MovieBuilder()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let movieViewController = movieBuilder.build(with: movieViewModel, service: appDelegate.service ?? TMDBService())
+        let movieViewController = movieBuilder.build(with: movieViewModel,
+                                                     service: appDelegate.service ?? TMDBService())
         
         guard let navigationController = viewController?.navigationController else {
             return

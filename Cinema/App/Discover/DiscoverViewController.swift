@@ -13,8 +13,9 @@ public final class DiscoverViewController: UIViewController {
 
     var output: DiscoverViewOutput?
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private let cellNibName = String(describing: DiscoverCell.self)
     private let refreshControl = UIRefreshControl()
     private var viewModel: DiscoverViewModel?
@@ -33,36 +34,6 @@ public final class DiscoverViewController: UIViewController {
     @objc func refreshDiscoverData(_ sender: Any) {
         refreshControl.beginRefreshing()
         output?.refreshDiscoverData()
-    }
-}
-
-private extension DiscoverViewController {
-
-    func setupView() {
-        let nibObject = UINib(nibName: cellNibName, bundle: nil)
-        tableView.register(nibObject, forCellReuseIdentifier: cellNibName)
-        tableView.tableFooterView = UIView()
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
-        refreshControl.attributedTitle = NSAttributedString(string: Constants.refreshString)
-        refreshControl.addTarget(self, action: #selector(refreshDiscoverData(_:)), for: .valueChanged)
-    }
-    
-   func dataSource() -> [DiscoverDetail]? {
-        guard let dataSource  = self.viewModel?.dataSource else {
-            return nil
-        }
-        return dataSource
-    }
-    
-    func transformImageURL(subURL: String?) -> String {
-        guard let subURL = subURL else {
-            return ""
-        }
-        return Constants.imageBaseURL + subURL
     }
 }
 
@@ -100,7 +71,6 @@ extension DiscoverViewController: DiscoverCellDelegate {
         }
         output?.didTapDiscoverCell(cellIndex: indexPath.row)
     }
-    
 }
 
 
@@ -141,5 +111,35 @@ extension DiscoverViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+}
+
+private extension DiscoverViewController {
+    
+    func setupView() {
+        let nibObject = UINib(nibName: cellNibName, bundle: nil)
+        tableView.register(nibObject, forCellReuseIdentifier: cellNibName)
+        tableView.tableFooterView = UIView()
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.attributedTitle = NSAttributedString(string: Constants.refreshString)
+        refreshControl.addTarget(self, action: #selector(refreshDiscoverData(_:)), for: .valueChanged)
+    }
+    
+    func dataSource() -> [DiscoverDetail]? {
+        guard let dataSource  = self.viewModel?.dataSource else {
+            return nil
+        }
+        return dataSource
+    }
+    
+    func transformImageURL(subURL: String?) -> String {
+        guard let subURL = subURL else {
+            return ""
+        }
+        return Constants.imageBaseURL + subURL
     }
 }

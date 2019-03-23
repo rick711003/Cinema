@@ -18,6 +18,7 @@ struct Constants {
     static let moviePath = "movie/"
     static let sortBy = "release_ date.desc"
     static let primaryReleaseDateLte = "2016-12-31"
+    
     // Request field name
     static let apiKeyFieldName = "api_key"
     static let sortByFieldName = "sort_by"
@@ -30,6 +31,7 @@ struct Constants {
     static let minsString = "mins"
     static let placeholderImageName = "clapboard.png"
     static let cellIdentifier = "cell"
+    static let cinemaString = "Cinema"
     
     // Atray
     static let movieDetail = [ MovieDetailType.synopsis.rawValue,

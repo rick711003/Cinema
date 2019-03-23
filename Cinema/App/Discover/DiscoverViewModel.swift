@@ -10,7 +10,7 @@ import Foundation
 
 public struct DiscoverViewModel {
     
-    public let navigationTitle: String = "Cinema"
+    public let navigationTitle: String = Constants.cinemaString
     public var discoverResponse: Discover?
     public var currentPage: Int = 1
     public var dataSource: [DiscoverDetail]? = []

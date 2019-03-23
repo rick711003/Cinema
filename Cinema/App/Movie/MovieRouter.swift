@@ -9,7 +9,6 @@
 import UIKit
 
 final class MovieRouter {
-    
     weak var viewController: UIViewController?
 }
 

@@ -20,16 +20,6 @@ final class MoviePresenter {
     }
 }
 
-private extension MoviePresenter {
-    
-    func loadData() {
-        guard let interactor = interactor else {
-            return
-        }
-        interactor.requestMovie(movieId: viewModel.movieId)
-    }
-}
-
 // MARK: - MovieInteractorOutput
 extension MoviePresenter: MovieInteractorOutput {
     func didReceiveMovieData(movie: Movie) {
@@ -50,5 +40,15 @@ extension MoviePresenter: MovieViewOutput {
     
     func didTapBookNow() {
         router?.gotoWebView()
+    }
+}
+
+private extension MoviePresenter {
+    
+    func loadData() {
+        guard let interactor = interactor else {
+            return
+        }
+        interactor.requestMovie(movieId: viewModel.movieId)
     }
 }

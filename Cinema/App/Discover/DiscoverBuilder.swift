@@ -32,4 +32,3 @@ public struct DiscoverBuilder {
         return viewController
     }
 }
-

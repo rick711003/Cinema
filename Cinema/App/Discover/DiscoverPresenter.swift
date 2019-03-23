@@ -21,16 +21,6 @@ final class DiscoverPresenter {
     }
 }
 
-private extension DiscoverPresenter {
-    
-    func loadData(_ page: Int = 1) {
-        guard let interactor = interactor else {
-            return
-        }
-        interactor.requestDiscover(page: page)
-    }
-}
-
 // MARK: - DiscoverInteractorOutput
 extension DiscoverPresenter: DiscoverInteractorOutput {
 
@@ -69,5 +59,15 @@ extension DiscoverPresenter: DiscoverViewOutput {
     func loadNextPage() {
         viewModel.currentPage = viewModel.currentPage + 1
         loadData(viewModel.currentPage)
+    }
+}
+
+private extension DiscoverPresenter {
+    
+    func loadData(_ page: Int = 1) {
+        guard let interactor = interactor else {
+            return
+        }
+        interactor.requestDiscover(page: page)
     }
 }

@@ -33,9 +33,7 @@ class DiscoverCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.topContentView.transformer = FSPagerViewTransformer(type:.cubic)
-        let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        self.topContentView.itemSize = topContentView.frame.size.applying(transform)
+        self.topContentView.transformer = FSPagerViewTransformer(type:.zoomOut)
         self.topContentView.decelerationDistance = 1
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.addGestureRecognizer(tap)
@@ -49,6 +47,7 @@ class DiscoverCell: UITableViewCell {
         titleLabel.text = viewModel.title
         popularityScoreLabel.text = String(viewModel.popularity)
         pageControl.numberOfPages = viewModel.imageNames.count
+        pageControl.currentPage = 0
         topContentView.reloadData()
     }
     

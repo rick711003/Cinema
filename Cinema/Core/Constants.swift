@@ -28,7 +28,7 @@ struct Constants {
     // String
     static let refreshString = "Refresh..."
     static let minsString = "mins"
-    static let placeholderImageName = "placeholder.png"
+    static let placeholderImageName = "clapboard.png"
     static let cellIdentifier = "cell"
     
     // Atray

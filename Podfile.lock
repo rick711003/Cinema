@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (5.0.0-beta.3)
   - FSPagerView (0.8.2)
+  - iOSSnapshotTestCase (6.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.0.0)
+  - iOSSnapshotTestCase/Core (6.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.0.0):
+    - iOSSnapshotTestCase/Core
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -8,19 +13,22 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.3)
   - FSPagerView
+  - iOSSnapshotTestCase
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - FSPagerView
+    - iOSSnapshotTestCase
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  iOSSnapshotTestCase: f592adfdedffe6113a55528ce698ccc457a550f1
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: ca6814069f490244e5bd4dce1adcdf2b447b263c
+PODFILE CHECKSUM: 1b8b9806b6b938da24630fbaf64b0c27b3f1fba9
 
 COCOAPODS: 1.6.1

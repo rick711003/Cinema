@@ -15,6 +15,7 @@ target 'Cinema' do
   target 'CinemaTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'iOSSnapshotTestCase'	
   end
 
   target 'CinemaUITests' do

@@ -9,22 +9,6 @@
 import Foundation
 import Alamofire
 
-private struct Constants {
-    // request constants elemment
-    static let apiKey = "328c283cd27bd1877d9080ccb1604c91"
-    static let baseURL = "https://api.themoviedb.org/3/"
-    static let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-    static let discoverPath = "discover/movie"
-    static let moviePath = "movie/"
-    static let sortBy = "release_ date.desc"
-    static let primaryReleaseDateLte = "2016-12-31"
-    // request field name
-    static let apiKeyFieldName = "api_key"
-    static let sortByFieldName = "sort_by"
-    static let pageFieldName = "page"
-    static let primaryReleaseDateLetFieldName = "primary_release_date.lte"
-}
-
 public struct TMDBService {
 
     static func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {

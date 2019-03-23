@@ -47,7 +47,7 @@ private extension DiscoverViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.attributedTitle = NSAttributedString(string: "Refresh...")
+        refreshControl.attributedTitle = NSAttributedString(string: Constants.refreshString)
         refreshControl.addTarget(self, action: #selector(refreshDisverData(_:)), for: .valueChanged)
     }
     
@@ -62,8 +62,7 @@ private extension DiscoverViewController {
         guard let subURL = subURL else {
             return ""
         }
-        let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-        return imageBaseURL + subURL
+        return Constants.imageBaseURL + subURL
     }
     
     func loadNextPage() -> [DiscoverDetail]? {

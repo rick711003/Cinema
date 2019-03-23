@@ -46,8 +46,7 @@ private extension MovieViewController {
         guard let subURL = subURL else {
             return ""
         }
-        let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-        return imageBaseURL + subURL
+        return Constants.imageBaseURL + subURL
     }
     
     func generateDescription(keyWord: String) -> String {
@@ -55,14 +54,14 @@ private extension MovieViewController {
             return ""
         }
         switch keyWord {
-        case "Synopsis":
+        case MovieDetailType.synopsis.rawValue:
             return movie.overview ?? ""
-        case "Genres":
+        case MovieDetailType.genres.rawValue:
             return movie.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? ""
-        case "Language":
+        case MovieDetailType.language.rawValue:
             return movie.spokenLanguages?.map({ $0.name ?? ""}).joined(separator: ", ") ?? ""
-        case "Duration":
-            return "\(movie.runtime ?? 0) mins"
+        case MovieDetailType.duration.rawValue:
+            return String(movie.runtime ?? 0) + Constants.mins
         default:
             return ""
         }

@@ -13,7 +13,7 @@ public final class DiscoverViewController: UIViewController {
 
     var output: DiscoverViewOutput?
     
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     private let cellNibName = String(describing: DiscoverCell.self)
     private let refreshControl = UIRefreshControl()
@@ -30,7 +30,7 @@ public final class DiscoverViewController: UIViewController {
         output?.viewWillAppear()
     }
     
-    @objc private func refreshDisverData(_ sender: Any) {
+    @objc func refreshDiscoverData(_ sender: Any) {
         refreshControl.beginRefreshing()
         output?.refreshDiscoverData()
     }
@@ -48,7 +48,7 @@ private extension DiscoverViewController {
             tableView.addSubview(refreshControl)
         }
         refreshControl.attributedTitle = NSAttributedString(string: Constants.refreshString)
-        refreshControl.addTarget(self, action: #selector(refreshDisverData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshDiscoverData(_:)), for: .valueChanged)
     }
     
    func dataSource() -> [DiscoverDetail]? {
@@ -63,10 +63,6 @@ private extension DiscoverViewController {
             return ""
         }
         return Constants.imageBaseURL + subURL
-    }
-    
-    func loadNextPage() -> [DiscoverDetail]? {
-        return nil
     }
 }
 

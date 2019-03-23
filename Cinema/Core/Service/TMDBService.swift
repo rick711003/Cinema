@@ -9,9 +9,9 @@
 import Foundation
 import Alamofire
 
-public struct TMDBService {
+public class TMDBService {
 
-    static func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {
+    func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {
         let urlString = Constants.baseURL + Constants.discoverPath
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey,
                                       Constants.primaryReleaseDateLetFieldName: Constants.primaryReleaseDateLte,
@@ -29,7 +29,7 @@ public struct TMDBService {
         }
     }
     
-    static func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?) -> Void) {
+    func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?) -> Void) {
         let urlString = Constants.baseURL + Constants.moviePath + String(movieId)
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey]
         

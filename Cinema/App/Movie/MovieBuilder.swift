@@ -12,7 +12,7 @@ public struct MovieBuilder {
     
     public init() {}
     
-    public func  build(with model: MovieViewModel) -> MovieViewController {
+    public func  build(with model: MovieViewModel, service: TMDBService) -> MovieViewController {
         
         let nibName = String(describing: MovieViewController.self)
         let viewController = MovieViewController(nibName: nibName, bundle: nil)
@@ -24,7 +24,7 @@ public struct MovieBuilder {
         presenter.view = viewController
         presenter.router = router
         
-        let interactor = MovieInteractor()
+        let interactor = MovieInteractor(with: service)
         interactor.output = presenter
         presenter.interactor = interactor
         

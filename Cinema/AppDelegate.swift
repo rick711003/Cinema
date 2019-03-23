@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var service: TMDBService?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -45,9 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func settingDefaultViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
         navigationController = UINavigationController()
+        service = TMDBService()
         let discoverViewModel = DiscoverViewModel()
         let discoverBuilder = DiscoverBuilder()
-        let discoverViewController = discoverBuilder.build(with: discoverViewModel)
+        let discoverViewController = discoverBuilder.build(with: discoverViewModel, service: service ?? TMDBService())
         navigationController?.pushViewController(discoverViewController, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

@@ -10,13 +10,16 @@ import Foundation
 
 final class MovieInteractor {
     weak var output: MovieInteractorOutput?
-    
+    private var service: TMDBService
+    init(with service: TMDBService) {
+        self.service = service
+    }
 }
 
 // MARK: - MovieInteractorInput
 extension MovieInteractor: MovieInteractorInput {
     func requestMovie(movieId: Int) {
-        TMDBService.getMovie(movieId: movieId) { (movie) in
+        service.getMovie(movieId: movieId) { (movie) in
             if let movie: Movie = movie {
                 self.output?.didReceiveMovieData(movie: movie)
             }

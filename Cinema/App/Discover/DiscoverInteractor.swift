@@ -10,13 +10,17 @@ import Foundation
 
 final class DiscoverInteractor {
     weak var output: DiscoverInteractorOutput?
+    private var service: TMDBService
+    init(with service: TMDBService) {
+        self.service = service
+    }
 }
 
 // MARK: - DiscoverInteractorInput
 extension DiscoverInteractor: DiscoverInteractorInput {
     
     func requestDiscover(page: Int = 1) {
-        TMDBService.getDiscover(page: page) { (discover) in
+        service.getDiscover(page: page) { (discover) in
             if let discover: Discover = discover {
                 self.output?.didReceiveDiscoverData(discover: discover)
             }

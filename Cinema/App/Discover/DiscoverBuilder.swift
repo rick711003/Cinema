@@ -12,7 +12,7 @@ public struct DiscoverBuilder {
     
     public init() {}
     
-    public func build(with model: DiscoverViewModel) -> DiscoverViewController {
+    public func build(with model: DiscoverViewModel, service: TMDBService) -> DiscoverViewController {
         
         let nibName = String(describing: DiscoverViewController.self)
         let viewController = DiscoverViewController(nibName: nibName, bundle: nil)
@@ -24,7 +24,7 @@ public struct DiscoverBuilder {
         presenter.view = viewController
         presenter.router = router
         
-        let interactor = DiscoverInteractor()
+        let interactor = DiscoverInteractor(with: service)
         interactor.output = presenter
         presenter.interactor = interactor
         

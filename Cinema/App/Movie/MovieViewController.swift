@@ -61,7 +61,7 @@ private extension MovieViewController {
         case MovieDetailType.language.rawValue:
             return movie.spokenLanguages?.map({ $0.name ?? ""}).joined(separator: ", ") ?? ""
         case MovieDetailType.duration.rawValue:
-            return String(movie.runtime ?? 0) + Constants.mins
+            return String(movie.runtime ?? 0) + Constants.minsString
         default:
             return ""
         }

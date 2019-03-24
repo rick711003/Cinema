@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D80C7555334BC0A30F3CED3 /* Pods_CinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA35D11CE26C3ED24B4C1A76 /* Pods_CinemaUITests.framework */; };
 		47D42A4F505FDBE0520FEDFC /* Pods_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B39E525155A060BFFB8B5B1 /* Pods_Cinema.framework */; };
 		6C08774D122BBC3FE18DAEE3 /* Pods_CinemaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825234A8DB0BBAD1B5DE87FB /* Pods_CinemaTests.framework */; };
 		9F1427C92245F98700E71F0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1427C82245F98700E71F0F /* Constants.swift */; };
@@ -60,18 +59,10 @@
 		9FBD335C2242AF1F00DEBC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBD335B2242AF1F00DEBC0C /* Assets.xcassets */; };
 		9FD3DF69224146CC004DE327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF68224146CC004DE327 /* AppDelegate.swift */; };
 		9FD3DF73224146CF004DE327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3DF71224146CF004DE327 /* LaunchScreen.storyboard */; };
-		9FD3DF89224146CF004DE327 /* CinemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3DF88224146CF004DE327 /* CinemaUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9FD3DF7A224146CF004DE327 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9FD3DF5D224146CC004DE327 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FD3DF64224146CC004DE327;
-			remoteInfo = Cinema;
-		};
-		9FD3DF85224146CF004DE327 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9FD3DF5D224146CC004DE327 /* Project object */;
 			proxyType = 1;
@@ -140,9 +131,6 @@
 		9FD3DF74224146CF004DE327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD3DF79224146CF004DE327 /* CinemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD3DF7F224146CF004DE327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FD3DF84224146CF004DE327 /* CinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FD3DF88224146CF004DE327 /* CinemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaUITests.swift; sourceTree = "<group>"; };
-		9FD3DF8A224146CF004DE327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1FE09F1E1B180169CA04A5 /* Pods-CinemaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTests.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTests/Pods-CinemaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1D7E446D0CD994644CF8590 /* Pods-Cinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinema.release.xcconfig"; path = "Target Support Files/Pods-Cinema/Pods-Cinema.release.xcconfig"; sourceTree = "<group>"; };
 		FA35D11CE26C3ED24B4C1A76 /* Pods_CinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,14 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C08774D122BBC3FE18DAEE3 /* Pods_CinemaTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9FD3DF81224146CF004DE327 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0D80C7555334BC0A30F3CED3 /* Pods_CinemaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +323,6 @@
 			children = (
 				9FD3DF67224146CC004DE327 /* Cinema */,
 				9FD3DF7C224146CF004DE327 /* CinemaTests */,
-				9FD3DF87224146CF004DE327 /* CinemaUITests */,
 				9FD3DF66224146CC004DE327 /* Products */,
 				E8BA22E13FE3D4DEA351B32F /* Pods */,
 				71EB004497EA8DA6F8F19BBC /* Frameworks */,
@@ -355,7 +334,6 @@
 			children = (
 				9FD3DF65224146CC004DE327 /* Cinema.app */,
 				9FD3DF79224146CF004DE327 /* CinemaTests.xctest */,
-				9FD3DF84224146CF004DE327 /* CinemaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,15 +361,6 @@
 				9FD3DF7F224146CF004DE327 /* Info.plist */,
 			);
 			path = CinemaTests;
-			sourceTree = "<group>";
-		};
-		9FD3DF87224146CF004DE327 /* CinemaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9FD3DF88224146CF004DE327 /* CinemaUITests.swift */,
-				9FD3DF8A224146CF004DE327 /* Info.plist */,
-			);
-			path = CinemaUITests;
 			sourceTree = "<group>";
 		};
 		9FD3DF9622414A93004DE327 /* Core */ = {
@@ -459,25 +428,6 @@
 			productReference = 9FD3DF79224146CF004DE327 /* CinemaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9FD3DF83224146CF004DE327 /* CinemaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9FD3DF93224146CF004DE327 /* Build configuration list for PBXNativeTarget "CinemaUITests" */;
-			buildPhases = (
-				BDAC7C1CCBFBF619B0C9CDF0 /* [CP] Check Pods Manifest.lock */,
-				9FD3DF80224146CF004DE327 /* Sources */,
-				9FD3DF81224146CF004DE327 /* Frameworks */,
-				9FD3DF82224146CF004DE327 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9FD3DF86224146CF004DE327 /* PBXTargetDependency */,
-			);
-			name = CinemaUITests;
-			productName = CinemaUITests;
-			productReference = 9FD3DF84224146CF004DE327 /* CinemaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -492,10 +442,6 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					9FD3DF78224146CF004DE327 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 9FD3DF64224146CC004DE327;
-					};
-					9FD3DF83224146CF004DE327 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 9FD3DF64224146CC004DE327;
 					};
@@ -516,7 +462,6 @@
 			targets = (
 				9FD3DF64224146CC004DE327 /* Cinema */,
 				9FD3DF78224146CF004DE327 /* CinemaTests */,
-				9FD3DF83224146CF004DE327 /* CinemaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -536,13 +481,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9FD3DF77224146CF004DE327 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9FD3DF82224146CF004DE327 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -644,28 +582,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTests/Pods-CinemaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BDAC7C1CCBFBF619B0C9CDF0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CinemaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -727,14 +643,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9FD3DF80224146CF004DE327 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9FD3DF89224146CF004DE327 /* CinemaUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -742,11 +650,6 @@
 			isa = PBXTargetDependency;
 			target = 9FD3DF64224146CC004DE327 /* Cinema */;
 			targetProxy = 9FD3DF7A224146CF004DE327 /* PBXContainerItemProxy */;
-		};
-		9FD3DF86224146CF004DE327 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9FD3DF64224146CC004DE327 /* Cinema */;
-			targetProxy = 9FD3DF85224146CF004DE327 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -920,7 +823,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB1FE09F1E1B180169CA04A5 /* Pods-CinemaTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N7884CJC5;
@@ -942,7 +844,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B1DC811EBCE32374501728B /* Pods-CinemaTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N7884CJC5;
@@ -957,48 +858,6 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cinema.app/Cinema";
-			};
-			name = Release;
-		};
-		9FD3DF94224146CF004DE327 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFC77941CA8937A417DDE1C0 /* Pods-CinemaUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N7884CJC5;
-				INFOPLIST_FILE = CinemaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shopback.CinemaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Cinema;
-			};
-			name = Debug;
-		};
-		9FD3DF95224146CF004DE327 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57E360C50C05FF66370D855F /* Pods-CinemaUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N7884CJC5;
-				INFOPLIST_FILE = CinemaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shopback.CinemaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Cinema;
 			};
 			name = Release;
 		};
@@ -1028,15 +887,6 @@
 			buildConfigurations = (
 				9FD3DF91224146CF004DE327 /* Debug */,
 				9FD3DF92224146CF004DE327 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9FD3DF93224146CF004DE327 /* Build configuration list for PBXNativeTarget "CinemaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9FD3DF94224146CF004DE327 /* Debug */,
-				9FD3DF95224146CF004DE327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

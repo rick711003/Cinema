@@ -46,6 +46,9 @@ class DiscoverCell: UITableViewCell {
         pageControl.numberOfPages = viewModel.imageNames.count
         pageControl.currentPage = 0
         topContentView.reloadData()
+        
+        contentView.setNeedsLayout()
+        contentView.layoutIfNeeded()
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {

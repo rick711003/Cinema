@@ -21,6 +21,14 @@ final class MovieDetailCellSnapshotTests: FBSnapshotTestCase {
         super.tearDown()
     }
     
+    func testNilDefault() {
+        let cell = UINib(nibName: "MovieDetailsCell", bundle: nil).instantiate(withOwner: nil,
+                                                                               options: nil)[0] as! MovieDetailsCell
+        cell.configCell(cellViewModel: nil)
+        
+        verifyView(cell)
+    }
+    
     func testSysnopisDefault() {
         let movieDetailCellViewModel = MovieDetailsCellViewModel(title: "Sysnopis",
                                                                  description: "Otomo Kathsuhiro's short anime story",

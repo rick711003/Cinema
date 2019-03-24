@@ -20,21 +20,44 @@ class MockNavigationController: UINavigationController {
 }
 
 class MockTMDBService: TMDBService {
+    
+    var error: Error? = nil
+    
     var getDiscoverServiceCalled = false
     var discoverCurrentPage = 0
-    override func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {
+    var mockDiscover: Discover? = nil
+    override func getDiscover(page: Int, completion: @escaping (_ discover: Discover?, _ error: Error?) -> Void) {
         getDiscoverServiceCalled = true
         discoverCurrentPage = page
+        if mockDiscover != nil {
+             completion(mockDiscover, nil)
+        } else if error != nil {
+            completion(nil, error)
+        }
     }
+    
     var getMovieServiceCalled = false
     var currentMovieId = 0
-    override func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?) -> Void) {
+    var mockMovie: Movie? = nil
+    override func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?, _ error: Error?) -> Void) {
         getMovieServiceCalled = true
         currentMovieId = movieId
+        if mockMovie != nil {
+            completion(mockMovie, nil)
+        } else if error != nil {
+            completion(nil, error)
+        }
     }
 }
 
 class MockDiscoverViewInput: DiscoverViewInput {
+    var alertErrorMessageCalled = false
+    var alertMessage = ""
+    func alertErrorMessage(_ message: String) {
+        alertErrorMessageCalled = true
+        alertMessage = message
+    }
+    
     var updateNavigationTitleCalled = false
     var mockNavigationTitle = ""
     func updateNavigationTitle(with navigationTitle: String) {
@@ -56,6 +79,22 @@ class MockDiscoverInteractorInput: DiscoverInteractorInput {
     func requestDiscover(page: Int) {
         requestDiscoverCalled = true
         requestionPage = page
+    }
+}
+
+class MockDiscoverInteractorOutput: DiscoverInteractorOutput {
+    var didReceiveDiscoverDataCalled = false
+    var mockDiscover: Discover?
+    func didReceiveDiscoverData(discover: Discover) {
+        didReceiveDiscoverDataCalled = true
+        mockDiscover = discover
+    }
+    
+    var gotErrorCalled = false
+    var mockError: Error = NSError(domain: "default error", code: 111, userInfo: nil)
+    func gotError(with error: Error) {
+        gotErrorCalled = true
+        mockError = error
     }
 }
 
@@ -99,6 +138,12 @@ class MockDiscoverViewOutput: DiscoverViewOutput {
 }
 
 class MockMovieViewInput: MovieViewInput {
+    var alertErrorMessageCalled = false
+    var alertMessage = ""
+    func alertErrorMessage(_ message: String) {
+        alertErrorMessageCalled = true
+        alertMessage = message
+    }
     
     var updateNavigationTitleCalled = false
     var mockNavigationTitle = ""
@@ -122,6 +167,22 @@ class MockMovieInteractorInput: MovieInteractorInput {
     func requestMovie(movieId: Int) {
         requestMovieCalled = true
         mockMovieId = movieId
+    }
+}
+
+class MockMovieInteractorOutput: MovieInteractorOutput {
+    var didReceiveMovieDataCalled = false
+    var mockMovie: Movie?
+    func didReceiveMovieData(movie: Movie) {
+        didReceiveMovieDataCalled = true
+        mockMovie = movie
+    }
+    
+    var gotErrorCalled = false
+    var mockError: Error = NSError(domain: "default error", code: 111, userInfo: nil)
+    func gotError(with error: Error) {
+        gotErrorCalled = true
+        mockError = error
     }
 }
 

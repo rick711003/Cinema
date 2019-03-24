@@ -83,4 +83,30 @@ final class DiscoverPresenterTests: XCTestCase {
         XCTAssertNotNil(view.mockDiscoverViewModel?.dataSource)
         XCTAssertTrue(view.discoverReloadDataCalled)
     }
+    
+    func testGotError() {
+        // given
+        let error: Error = NSError(domain: "error description", code: 999, userInfo: nil)
+        
+        // when
+        presenter.gotError(with: error)
+        
+        // then
+        XCTAssertTrue(view.alertErrorMessageCalled)
+        XCTAssertEqual(view.alertMessage, error.localizedDescription)
+    }
+    
+    func testDidTapDiscoverCell() {
+        // given
+        let mockDicvoer = MockDicover().dicover
+        let discoverViewModel = DiscoverViewModel(discoverResponse: mockDicvoer, currentPage: 1, dataSource: mockDicvoer?.results)
+        presenter = DiscoverPresenter(with: discoverViewModel)
+        presenter.router = router
+        
+        // when
+        presenter.didTapDiscoverCell(cellIndex: 0)
+        
+        // then
+        XCTAssertTrue(router.gotoMovieDetailCalled)
+    }
 }

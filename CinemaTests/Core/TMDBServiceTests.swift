@@ -25,7 +25,8 @@ final class TMDBServiceTests: XCTestCase {
     
     func testGetDiscover() {
         let expectation = self.expectation(description: "Get data failing")
-        service.getDiscover(page: 1) { (discover) in
+        service.getDiscover(page: 1) { (discover, error) in
+            XCTAssertNil(error)
             XCTAssertNotNil(discover)
             expectation.fulfill()
         }
@@ -38,7 +39,8 @@ final class TMDBServiceTests: XCTestCase {
     
     func testGetMovie() {
         let expectation = self.expectation(description: "Get data failing")
-        service.getMovie(movieId: 328111) { (movie) in
+        service.getMovie(movieId: 328111) { (movie, error) in
+            XCTAssertNil(error)
             XCTAssertNotNil(movie)
             expectation.fulfill()
         }

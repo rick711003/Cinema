@@ -72,4 +72,15 @@ final class MoviePresenterTests: XCTestCase {
         // then
         XCTAssertTrue(router.gotoWebViewCalled)
     }
+    
+    func testGotError() {
+        // given
+        let error: Error = NSError(domain: "error description", code: 999, userInfo: nil)
+        // when
+        presenter.gotError(with: error)
+        
+        // then
+        XCTAssertTrue(view.alertErrorMessageCalled)
+        XCTAssertEqual(view.alertMessage, error.localizedDescription)
+    }
 }

@@ -41,10 +41,10 @@ final class MovieViewControllerTests: XCTestCase {
     
     func testViewWillAppear() {
         // when
-        viewController.viewDidLoad()
+        viewController.viewWillAppear(true)
         
         // then
-        XCTAssertTrue(presenter.viewIsReadyCalled)
+        XCTAssertTrue(presenter.viewWillAppearCalled)
     }
     
     func testDidTapBookNow() {
@@ -53,5 +53,52 @@ final class MovieViewControllerTests: XCTestCase {
         
         // then
         XCTAssertTrue(presenter.didTopBookNowCalled)
+    }
+    
+    func testUpdateNavigationTitle() {
+        // when
+        viewController.updateNavigationTitle(with: "title")
+        
+        // then
+        XCTAssertEqual(viewController.title, "title")
+    }
+    
+    func testMovieReloadDataHasData() {
+        // given
+        let mockMovieObject = MockMovie()
+        var movieModel = MovieViewModel(movieId: 328111, movieName: "The Secret Life of Pets")
+        movieModel.movie = mockMovieObject.movie
+        viewController.viewDidLoad()
+        viewController.activityIndicator.startAnimating()
+        
+        // when
+        viewController.movieReloadData(viewModel: movieModel)
+        
+        // then
+        XCTAssertFalse(viewController.activityIndicator.isAnimating)
+        XCTAssertTrue(viewController.tableView.visibleCells.count == 5)
+    }
+    
+    func testMovieReloadDataNoData() {
+        // given
+        let movieModel = MovieViewModel(movieId: 328111, movieName: "The Secret Life of Pets")
+        viewController.activityIndicator.startAnimating()
+        
+        // when
+        viewController.movieReloadData(viewModel: movieModel)
+        
+        // then
+        XCTAssertTrue(viewController.tableView.visibleCells.count == 0)
+    }
+    
+    func testAlertErrorMessage() {
+        // given
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        
+        // when
+        viewController.alertErrorMessage("alert message")
+        
+        //then
+        XCTAssertTrue(viewController.presentedViewController is UIAlertController)
     }
 }

@@ -41,10 +41,10 @@ final class DiscoverViewControllerTests: XCTestCase {
     
     func testViewWillAppear() {
         // when
-        viewController.viewDidLoad()
+        viewController.viewWillAppear(true)
         
         // then
-        XCTAssertTrue(presenter.viewIsReadyCalled)
+        XCTAssertTrue(presenter.viewWillAppearCalled)
     }
     
     func testRefreshDiscoverData() {
@@ -53,5 +53,69 @@ final class DiscoverViewControllerTests: XCTestCase {
         
         // then
         XCTAssertTrue(presenter.refreshDiscoverDataCalled)
+    }
+    
+    func testUpdateNavigationTitle() {
+        // when
+        viewController.updateNavigationTitle(with: "title")
+        
+        // then
+        XCTAssertEqual(viewController.title, "title")
+    }
+    
+    func testDiscoverReloadDataUseRefreshControl() {
+        // given
+        let expectation = self.expectation(description: "stop refreshControl failing ")
+        let mockDicover = MockDicover()
+        let discoverViewModel = DiscoverViewModel(discoverResponse: mockDicover.dicover,
+                                                  currentPage: 1,
+                                                  dataSource: mockDicover.dicover?.results)
+        viewController.viewDidLoad()
+        guard let refreshControl = viewController.tableView.refreshControl else {
+            XCTFail()
+            return 
+        }
+        refreshControl.beginRefreshing()
+        
+        // when
+        viewController.discoverReloadData(viewModel: discoverViewModel)
+        
+        // given
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            XCTAssertFalse(refreshControl.isRefreshing)
+            expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 3) { (error) in
+            if let error = error {
+                XCTFail("error: \(error)")
+            }
+        }
+    }
+    
+    func testDiscoverReloadData() {
+        // given
+        let mockDicover = MockDicover()
+        let discoverViewModel = DiscoverViewModel(discoverResponse: mockDicover.dicover,
+                                                  currentPage: 1,
+                                                  dataSource: mockDicover.dicover?.results)
+        viewController.activityIndicator.startAnimating()
+        
+        // when
+        viewController.discoverReloadData(viewModel: discoverViewModel)
+        
+        // given
+        XCTAssertFalse(viewController.activityIndicator.isAnimating)
+    }
+    
+    func testAlertErrorMessage() {
+        // given
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        
+        // when
+        viewController.alertErrorMessage("alert message")
+        
+        //then
+        XCTAssertTrue(viewController.presentedViewController is UIAlertController)
     }
 }

@@ -21,6 +21,14 @@ final class DiscoverCellSnapshotTests: FBSnapshotTestCase {
         super.tearDown()
     }
     
+    func testNilDefault() {
+        let cell = UINib(nibName: "DiscoverCell", bundle: nil).instantiate(withOwner: nil,
+                                                                               options: nil)[0] as! DiscoverCell
+        cell.configCell(cellViewModel: nil)
+        
+        verifyView(cell)
+    }
+    
     func testDefault() {
         let mockDiscoverCellViewModel = DiscoverCellViewModel(imageNames: [""],
                                                               title: "Normal movie name",

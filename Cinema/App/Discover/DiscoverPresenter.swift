@@ -23,7 +23,7 @@ final class DiscoverPresenter {
 
 // MARK: - DiscoverInteractorOutput
 extension DiscoverPresenter: DiscoverInteractorOutput {
-
+    
     func didReceiveDiscoverData(discover: Discover) {
         viewModel.discoverResponse = discover
         viewModel.appendDataSource()
@@ -50,7 +50,7 @@ extension DiscoverPresenter: DiscoverViewOutput {
         guard let dataSource = viewModel.dataSource,
             let movieId = dataSource[cellIndex].movieId,
             let movieName = dataSource[cellIndex].title else {
-            return
+                return
         }
         
         router?.gotoMovieDetail(movideId: movieId, movieName: movieName)

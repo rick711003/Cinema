@@ -18,7 +18,7 @@ public struct DiscoverViewModel {
     mutating func appendDataSource() {
         guard let results = discoverResponse?.results,
             var localDataSource = dataSource else {
-            return
+                return
         }
         
         if !localDataSource.contains( where: { $0.movieId == results[0].movieId } ) {

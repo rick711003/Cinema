@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public final class DiscoverViewController: UIViewController {
-
+    
     var output: DiscoverViewOutput?
     
     @IBOutlet weak var tableView: UITableView!
@@ -100,7 +100,7 @@ extension DiscoverViewController: UITableViewDataSource, UITableViewDelegate {
             output?.loadNextPage()
         }
     }
-
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataSource = dataSource() else {
             return 0

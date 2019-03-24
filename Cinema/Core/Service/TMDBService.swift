@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 public class TMDBService {
-
+    
     func getDiscover(page: Int, completion: @escaping (_ discover: Discover?, _ error: Error?) -> Void) {
         let urlString = Constants.baseURL + Constants.discoverPath
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey,
@@ -35,7 +35,7 @@ public class TMDBService {
         
         Alamofire.AF.request(urlString, parameters:parameters).responseJSON { response in
             let decoder = JSONDecoder()
-
+            
             let movieData: Result<Movie> = decoder.decodeResponse(from: response)
             if movieData.isSuccess, let movie = movieData.value {
                 completion(movie, nil)

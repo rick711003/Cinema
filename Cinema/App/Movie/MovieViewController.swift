@@ -55,8 +55,8 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibNames.DiscoverCell.rawValue),
-            let movie = viewModel?.movie else {
-                fatalError("Can not dequeue cell")
+                let movie = viewModel?.movie else {
+                    fatalError("Can not dequeue cell")
             }
             cell.selectionStyle = .none
             
@@ -70,8 +70,8 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellNibNames.MovieDetailsCell.rawValue),
-             let viewModel = viewModel else {
-                fatalError("Can not dequeue cell")
+                let viewModel = viewModel else {
+                    fatalError("Can not dequeue cell")
             }
             cell.selectionStyle = .none
             if let movieDetailsCell = cell as? MovieDetailsCell {

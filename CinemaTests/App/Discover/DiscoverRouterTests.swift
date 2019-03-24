@@ -35,7 +35,7 @@ final class DiscoverRouterTests: XCTestCase {
         
         // when
         router.gotoMovieDetail(movideId: movideId, movieName: movieName)
-
+        
         // then
         XCTAssertTrue(mockNavigationController.pushCalled)
         XCTAssertTrue(mockNavigationController.pushedViewController is MovieViewController)

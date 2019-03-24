@@ -23,7 +23,7 @@ final class DiscoverCellSnapshotTests: FBSnapshotTestCase {
     
     func testNilDefault() {
         let cell = UINib(nibName: "DiscoverCell", bundle: nil).instantiate(withOwner: nil,
-                                                                               options: nil)[0] as! DiscoverCell
+                                                                           options: nil)[0] as! DiscoverCell
         cell.configCell(cellViewModel: nil)
         
         verifyView(cell)
@@ -49,7 +49,7 @@ extension FBSnapshotTestCase {
         
         cell.contentView.setNeedsLayout()
         cell.contentView.layoutIfNeeded()
-
+        
         let fittingSize = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         cell.frame.size = CGSize(width: 375, height: fittingSize.height)
         FBSnapshotVerifyView(cell)

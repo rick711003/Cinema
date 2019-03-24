@@ -71,7 +71,7 @@ extension DiscoverCell : FSPagerViewDataSource, FSPagerViewDelegate {
         
         guard let viewModel = viewModel,
             viewModel.imageNames.count > 0 else {
-            return 0
+                return 0
         }
         
         return viewModel.imageNames.count

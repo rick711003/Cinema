@@ -30,7 +30,7 @@ class MockTMDBService: TMDBService {
         getDiscoverServiceCalled = true
         discoverCurrentPage = page
         if mockDiscover != nil {
-             completion(mockDiscover, nil)
+            completion(mockDiscover, nil)
         } else if error != nil {
             completion(nil, error)
         }

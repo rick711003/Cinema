@@ -29,6 +29,10 @@ extension DiscoverPresenter: DiscoverInteractorOutput {
         viewModel.appendDataSource()
         view?.discoverReloadData(viewModel: viewModel)
     }
+    
+    func gotError(with error: Error) {
+        view?.alertErrorMessage(error.localizedDescription)
+    }
 }
 
 // MARK: - DiscoverViewOutput

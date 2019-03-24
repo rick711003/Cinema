@@ -19,9 +19,11 @@ final class MovieInteractor {
 // MARK: - MovieInteractorInput
 extension MovieInteractor: MovieInteractorInput {
     func requestMovie(movieId: Int) {
-        service.getMovie(movieId: movieId) { (movie) in
+        service.getMovie(movieId: movieId) { (movie, error)  in
             if let movie: Movie = movie {
                 self.output?.didReceiveMovieData(movie: movie)
+            } else if let error = error {
+                self.output?.gotError(with: error)
             }
         }
     }

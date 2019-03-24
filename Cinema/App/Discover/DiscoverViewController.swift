@@ -60,6 +60,21 @@ extension DiscoverViewController: DiscoverViewInput {
             tableView.reloadData()
         }
     }
+    
+    func alertErrorMessage(_ message: String) {
+        let alert = UIAlertController(title: Constants.warningString, message: message, preferredStyle: .alert)
+        alert.addAction( UIAlertAction(title: Constants.okayString, style: .default, handler: { action in
+            self.activityIndicator.stopAnimating()
+        }
+        ))
+        self.present(alert, animated: true, completion: nil)
+        
+        if refreshControl.isRefreshing {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
 }
 
 // MARK: - DiscoverCellDelegate

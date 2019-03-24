@@ -19,6 +19,7 @@ protocol DiscoverCellDelegate: class {
 protocol DiscoverViewInput: class {
     func updateNavigationTitle(with navigationTitle: String)
     func discoverReloadData(viewModel: DiscoverViewModel)
+    func alertErrorMessage(_ message: String)
 }
 
 protocol DiscoverViewOutput {
@@ -37,6 +38,7 @@ protocol DiscoverInteractorInput {
 
 protocol DiscoverInteractorOutput: class {
     func didReceiveDiscoverData(discover: Discover)
+    func gotError(with error: Error)
 }
 
 // MARK: - Router Input

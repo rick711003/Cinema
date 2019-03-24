@@ -14,6 +14,7 @@ struct Constants {
     static let apiKey = "328c283cd27bd1877d9080ccb1604c91"
     static let baseURL = "https://api.themoviedb.org/3/"
     static let imageBaseURL = "https://image.tmdb.org/t/p/w500"
+    static let webViewURL = "https://www.cathaycineplexes.com.sg/"
     static let discoverPath = "discover/movie"
     static let moviePath = "movie/"
     static let sortBy = "release_ date.desc"
@@ -32,6 +33,9 @@ struct Constants {
     static let placeholderImageName = "clapboard.png"
     static let cellIdentifier = "cell"
     static let cinemaString = "Cinema"
+    static let warningString = "Warning"
+    static let okayString = "OK"
+    static let bookNow = "Book Now"
     
     // Atray
     static let movieDetail = [ MovieDetailType.synopsis.rawValue,

@@ -22,9 +22,14 @@ final class MoviePresenter {
 
 // MARK: - MovieInteractorOutput
 extension MoviePresenter: MovieInteractorOutput {
+    
     func didReceiveMovieData(movie: Movie) {
         self.viewModel.movie = movie
         view?.movieReloadData(viewModel: viewModel)
+    }
+    
+    func gotError(with error: Error) {
+        view?.alertErrorMessage(error.localizedDescription)
     }
 }
 

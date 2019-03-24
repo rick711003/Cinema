@@ -11,7 +11,7 @@ import Alamofire
 
 public class TMDBService {
 
-    func getDiscover(page: Int, completion: @escaping (_ discover: Discover?) -> Void) {
+    func getDiscover(page: Int, completion: @escaping (_ discover: Discover?, _ error: Error?) -> Void) {
         let urlString = Constants.baseURL + Constants.discoverPath
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey,
                                       Constants.primaryReleaseDateLetFieldName: Constants.primaryReleaseDateLte,
@@ -22,14 +22,14 @@ public class TMDBService {
             let decoder = JSONDecoder()
             let decoderData: Result<Discover> = decoder.decodeResponse(from: response)
             if decoderData.isSuccess, let discover = decoderData.value {
-                completion(discover)
+                completion(discover, nil)
             } else {
-                print ("error")
+                completion (nil, response.error)
             }
         }
     }
     
-    func getMovie(movieId: Int, completion: @escaping (_ movie: Movie?) -> Void) {
+    func getMovie(movieId: Int, completion: @escaping (_ discover: Movie?, _ error: Error?) -> Void) {
         let urlString = Constants.baseURL + Constants.moviePath + String(movieId)
         let parameters: Parameters = [Constants.apiKeyFieldName: Constants.apiKey]
         
@@ -38,9 +38,9 @@ public class TMDBService {
 
             let movieData: Result<Movie> = decoder.decodeResponse(from: response)
             if movieData.isSuccess, let movie = movieData.value {
-                completion(movie)
+                completion(movie, nil)
             } else {
-                print ("error")
+                completion (nil, response.error)
             }
         }
     }

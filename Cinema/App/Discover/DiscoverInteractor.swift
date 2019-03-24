@@ -20,11 +20,12 @@ final class DiscoverInteractor {
 extension DiscoverInteractor: DiscoverInteractorInput {
     
     func requestDiscover(page: Int = 1) {
-        service.getDiscover(page: page) { (discover) in
+        service.getDiscover(page: page) { (discover, error) in
             if let discover: Discover = discover {
                 self.output?.didReceiveDiscoverData(discover: discover)
+            } else if let error = error {
+                self.output?.gotError(with: error)
             }
         }
     }
-
 }

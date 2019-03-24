@@ -13,6 +13,7 @@ import Foundation
 protocol MovieViewInput: class {
     func updateNavigationTitle(with navigationTitle: String)
     func movieReloadData(viewModel: MovieViewModel)
+    func alertErrorMessage(_ message: String)
 }
 
 protocol MovieViewOutput {
@@ -29,6 +30,7 @@ protocol MovieInteractorInput {
 
 protocol MovieInteractorOutput: class {
     func didReceiveMovieData(movie: Movie)
+    func gotError(with error: Error)
 }
 
 // MARK: - Router Input

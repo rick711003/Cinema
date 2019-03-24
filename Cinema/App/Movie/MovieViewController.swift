@@ -101,6 +101,15 @@ extension MovieViewController: MovieViewInput {
         self.viewModel = viewModel
         self.tableView.reloadData()
     }
+    
+    func alertErrorMessage(_ message: String) {
+        let alert = UIAlertController(title: Constants.warningString, message: message, preferredStyle: .alert)
+        alert.addAction( UIAlertAction(title: Constants.okayString, style: .default, handler: { action in
+            self.activityIndicator.stopAnimating()
+        }
+        ))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 private extension MovieViewController {
